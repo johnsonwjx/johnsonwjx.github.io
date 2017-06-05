@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Johnson" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.22-DEV" />
+
+<link rel="canonical" href="/post/hexo-travis/">
+<base href="/" />
+<meta property="og:title" content="hexo travis github 集成" />
+<meta property="og:description" content="跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
+ touch .travis/ssh_config  编辑ssh_config
+Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
+language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ=&#39;Asia/Shanghai&#39; # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/hexo-travis/" />
+
+
+
+<meta property="article:published_time" content="2017-06-05T14:30:32&#43;08:00"/>
+<meta property="article:modified_time" content="2017-06-05T14:30:32&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="hexo travis github 集成"/>
+<meta name="twitter:title" content="hexo travis github 集成"/>
+<meta name="twitter:description" content="跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
+ touch .travis/ssh_config  编辑ssh_config
+Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
+language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ=&#39;Asia/Shanghai&#39; # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in ."/>
+
+
+
+
+<meta itemprop="name" content="hexo travis github 集成">
+<meta itemprop="description" content="跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
+ touch .travis/ssh_config  编辑ssh_config
+Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
+language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ=&#39;Asia/Shanghai&#39; # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in .">
+
+
+<meta itemprop="dateModified" content="2017-06-05T14:30:32&#43;08:00" />
+<meta itemprop="wordCount" content="139">
+
+
+
+<meta itemprop="keywords" content="blog,hexo,hugo,travis," />
+
+
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/color-dark.css" />
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100450211-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+<title>
+
+
+     hexo travis github 集成 
+
+</title>
+
+<script src="js/highlight.min.js"></script>
+<link rel="stylesheet" href="css/tomorrow-night.min.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">Johnson</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> hexo travis github 集成 </h1>
+    <div class="content"> <blockquote>
+<p>跟 <a href="/post/hugo-travis/">hugo travis github 自动化</a> 大致相同，只是发布有些不同
+用hexo用 hexo-deployer-git 插件发布
+只需要创建 <em>raw</em> 分支, <em>master</em> hexo-deployer-git 自动创建</p>
+</blockquote>
+
+<pre><code class="language-bash"> touch .travis/ssh_config
+
+</code></pre>
+
+<p>编辑ssh_config</p>
+
+<pre><code>Host github.com
+    User git
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+</code></pre>
+
+<p><strong>.travis.yml</strong> 配置</p>
+
+<pre><code>language: node_js
+branches:
+  only:
+  - raw  # 设置自动化部署的分支
+before_install:
+- export TZ='Asia/Shanghai'  # 设置时区
+- npm install -g hexo
+- npm install -g hexo-cli
+# 将xxxxxxxxxxx替换上面生成的内容
+# 这里面的文件路径可根据自己的情况进行修改
+# 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa
+- openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in .travis/travis_key.enc -out ~/.ssh/id_rsa -d
+# 设置id_rsa文件权限
+- chmod 600 ~/.ssh/id_rsa
+# 添加ssh密钥
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+# 添加ssh配置文件
+- cp .travis/ssh_config ~/.ssh/config
+# 设置github账户信息
+- git config --global user.name &quot;SeayXu&quot; #设置github用户名
+- git config --global user.email SeayXu@163.com #设置github用户邮箱
+# 安装依赖组件
+install:
+- npm install
+# 执行的命令
+script:
+- hexo clean &amp;&amp; hexo g -d
+</code></pre>
+
+<p>修改 _comfig.yml 配置 git deploy信息</p>
+
+<pre><code>deploy:
+  type: git
+  repo: git@github.com:username/username.github.io.git # 同步的仓库
+  branch: raw
+</code></pre>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/hexo">#hexo</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/travis">#travis</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Jun 5, 2017 </div>
+  </div>
+
+</footer>
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'johnsonjx';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright"> Copyright (c) 2017, all rights reserved. </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</body>
+</html>
+
