@@ -86,3 +86,4 @@ mount /dev/sda1 /mnt/boot/EFI # BOIS 启动 mount /dev/sda1 /mnt/boot
 ```bash
 swapon /dev/sda2
 ```
+待续。。。
