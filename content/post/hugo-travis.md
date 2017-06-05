@@ -9,6 +9,11 @@ tags = ["hugo","travis"]
 > hugo 是 go 编写的 blog生成器
 > 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
 
+## 好处
+
+- hugo安装方便，生成快
+- 集成travis,只需要下载raw分支，新增post，push上去就可以了，本机什么都不用做，甚至不用安装hugo
+
 ## 安装hugo
 
 > go开发，二进制，可直接下载对应版本的[releases](https://github.com/spf13/hugo/releases)放到系统PATH
@@ -31,7 +36,7 @@ git init
 git check -b raw
 git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk
 echo 'public/' > .gitignore
-touch Makefile #否则会报 no buildable Go source files 
+touch Makefile #否则会报 no buildable Go source files
 git add .
 git commit -m 'init blog raw'
 git checkout --orphan master
@@ -99,6 +104,7 @@ hugo server -w
 - 登录 travis 加密 *ssh私钥*
 
 ```bash
+gem isntall travis # 安装 *travis* , arch安装 yaourt -S ruby-travis
 git checkout raw
 git remote add origin  https://github.com/****.io.git
 ssh-kengen -t 'rsa' -C 'travis' # 输入travis_key
@@ -129,6 +135,7 @@ env:
     - DEPLOY_BRANCH="raw"
     - TEMP_DIR=$(sudo mktemp -d /tmp/$REPO_NAME.XXXX)
 before_install:
+- export TZ='Asia/Shanghai'  # 设置时区
 - openssl aes-256-cbc -K $encrypted_xxxx_key -iv $encrypted_xxxxx_iv
   -in travis_key.enc -out travis_key -d
 before_script:
