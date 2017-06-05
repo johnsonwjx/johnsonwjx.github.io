@@ -1,0 +1,38 @@
+baseurl = "/"
+title = "Johnson"
+copyright = "Copyright (c) 2017, all rights reserved."
+canonifyurls = true
+languageCode = "zh-CN"
+paginate = 3
+theme = "hugo-dusk"
+
+googleAnalytics = "UA-100450211-1"
+disqusShortname = "johnsonjx"
+
+[author]
+  name = "Johnson"
+
+SectionPagesMenu = "main"
+
+[[menu.main]]
+  name = "Posts"
+  weight = -120
+  identifier = "post"
+  url = "/post/"
+
+[[menu.main]]
+  name = "Tags"
+  weight = -110
+  identifier = "tag"
+  url = "/tags/"
+
+[params.meta]
+  keywords = "blog, tech"
+  description = "Personal blog."
+
+[params]
+  #github = "johnsonwjx"
+  #gitlab = "gitlab id"
+  twitter = "wujiaixong0@gmail.com"
+  #linkedin = "linkedin id"
+  email = "wujiaxiong0@gmail.com"
