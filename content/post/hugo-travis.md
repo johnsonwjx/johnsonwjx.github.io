@@ -151,3 +151,8 @@ git add .
 git commit -m 'add deploy resources'
 git push -u origin master
 ```
+到 <https://travis-ci.org/>
+启用 io工程
+设置 勾选 Build only if .travis.yml is present
+
+success ！！
