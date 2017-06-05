@@ -31,6 +31,12 @@ git init
 git check -b raw
 git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk
 echo 'public/' > .gitignore
+git add .
+git commit -m 'init blog raw'
+git checkout --orphan master
+git rm -rf .
+git commit -m 'init deploy branch' --allow-empty
+
 ```
 
 *hugo-dusk* 的 *config.toml* example
@@ -84,4 +90,58 @@ hugo
 hugo server -w
 ```
 
-## 关联github
+## 关联github 和 travis
+
+- 关联远程github
+- 生成ssh key
+- 填加github io项目的 *deploy key* 给 *travis* 发布用 ,添加 travis_key 到 gitignore
+- 登录 travis 加密 *ssh私钥*
+
+```bash
+git checkout raw
+git remote add origin  https://github.com/****.io.git
+ssh-kengen -t 'rsa' -C 'travis' # 输入travis_key
+echo 'travis_key' >> .gitignore
+echo 'travis_key.pub' >> .gitignore
+travis login --auto
+travis whoami
+touch .travis.yml
+travis encrypt-file travis_key --add #  --add 自动添加 解密信息到 .travis.yaml
+cat travis_key.pub | pbcopy # 添加公钥 到 github deploy key，勾选 Allow write access。  linux cat travis_key.pub | xclip -selection cllipboard
+```
+如果报错 *repository not known to https://api.travis-ci.org/:*  进入 travis-ci.org sync account
+
+修改 .travis.yml 填写正确信息
+例如
+
+```
+language: go
+branches:
+  only:
+    - raw
+env:
+  global:
+    - SSH_KEY="travis_key"
+    - GIT_NAME="xxx"
+    - GIT_EMAIL="xxx@gmail.com"
+    - SOURCE_DIR="public"
+    - DEPLOY_BRANCH="code"
+    - TEMP_DIR=$(sudo mktemp -d /tmp/$REPO_NAME.XXXX)
+before_install:
+- openssl aes-256-cbc -K $encrypted_xxxx_key -iv $encrypted_xxxxx_iv
+  -in travis_key.enc -out travis_key -d
+before_script:
+  - go get -u -v github.com/spf13/hugo
+script:
+  - git submodule init
+  - hugo
+after_success:
+  - chmod a+x ./scripts/deploy.sh
+  - ./scripts/deploy.sh
+```
+
+下载发布脚本[deploy.sh](https://raw.githubusercontent.com/haruair/haruair.github.io/code/scripts/deploy.sh)
+```bash
+mkdir scripts && cd scripts
+wget https://raw.githubusercontent.com/haruair/haruair.github.io/code/scripts/deploy.sh
+```
