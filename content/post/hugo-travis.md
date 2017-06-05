@@ -31,6 +31,7 @@ git init
 git check -b raw
 git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk
 echo 'public/' > .gitignore
+touch Makefile #否则会报 no buildable Go source files 
 git add .
 git commit -m 'init blog raw'
 git checkout --orphan master
