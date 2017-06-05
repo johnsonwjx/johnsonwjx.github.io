@@ -1,0 +1,69 @@
++++
+date = "2017-06-05T14:30:32+08:00"
+title = "hexo travis github 集成"
+categories = ["blog"]
+tags = ["hexo","travis"]
+
++++
+
+> 跟 [hugo travis github 自动化](/post/hugo-travis/) 大致相同，只是发布有些不同
+> 用hexo用 hexo-deployer-git 插件发布
+> 只需要创建 *raw* 分支, *master* hexo-deployer-git 自动创建
+
+```bash
+ touch .travis/ssh_config
+
+```
+
+编辑ssh_config
+
+```
+Host github.com
+    User git
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+```
+
+**.travis.yml** 配置
+
+```
+language: node_js
+branches:
+  only:
+  - raw  # 设置自动化部署的分支
+before_install:
+- export TZ='Asia/Shanghai'  # 设置时区
+- npm install -g hexo
+- npm install -g hexo-cli
+# 将xxxxxxxxxxx替换上面生成的内容
+# 这里面的文件路径可根据自己的情况进行修改
+# 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa
+- openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in .travis/travis_key.enc -out ~/.ssh/id_rsa -d
+# 设置id_rsa文件权限
+- chmod 600 ~/.ssh/id_rsa
+# 添加ssh密钥
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+# 添加ssh配置文件
+- cp .travis/ssh_config ~/.ssh/config
+# 设置github账户信息
+- git config --global user.name "SeayXu" #设置github用户名
+- git config --global user.email SeayXu@163.com #设置github用户邮箱
+# 安装依赖组件
+install:
+- npm install
+# 执行的命令
+script:
+- hexo clean && hexo g -d
+```
+
+修改 _comfig.yml 配置 git deploy信息
+
+```
+deploy:
+  type: git
+  repo: git@github.com:username/username.github.io.git # 同步的仓库
+  branch: raw
+```
