@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Johnson</title>
+    <link>/categories/blog/</link>
+    <description>Recent content in Blog on Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2017, all rights reserved.</copyright>
+    <lastBuildDate>Mon, 05 Jun 2017 10:24:04 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hugo travis github 自动化</title>
+      <link>/post/hugo-travis/</link>
+      <pubDate>Mon, 05 Jun 2017 10:24:04 +0800</pubDate>
+      
+      <guid>/post/hugo-travis/</guid>
+      <description>hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
+ 安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
+ wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
+ hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo &#39;public/&#39; &amp;gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add .</description>
+    </item>
+    
+  </channel>
+</rss>

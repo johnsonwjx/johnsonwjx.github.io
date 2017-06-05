@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Johnson" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.22-DEV" />
+
+<link rel="canonical" href="/post/hugo-travis/">
+<base href="/" />
+<meta property="og:title" content="hugo travis github 自动化" />
+<meta property="og:description" content="hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
+ 安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
+ wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
+ hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo &#39;public/&#39; &gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/hugo-travis/" />
+
+
+
+<meta property="article:published_time" content="2017-06-05T10:24:04&#43;08:00"/>
+<meta property="article:modified_time" content="2017-06-05T10:24:04&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="hugo travis github 自动化"/>
+<meta name="twitter:title" content="hugo travis github 自动化"/>
+<meta name="twitter:description" content="hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
+ 安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
+ wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
+ hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo &#39;public/&#39; &gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add ."/>
+
+
+
+
+<meta itemprop="name" content="hugo travis github 自动化">
+<meta itemprop="description" content="hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
+ 安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
+ wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
+ hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo &#39;public/&#39; &gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add .">
+
+
+<meta itemprop="dateModified" content="2017-06-05T10:24:04&#43;08:00" />
+<meta itemprop="wordCount" content="395">
+
+
+
+<meta itemprop="keywords" content="blog,hugo,travis," />
+
+
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/color-dark.css" />
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100450211-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+<title>
+
+
+     hugo travis github 自动化 
+
+</title>
+
+<script src="js/highlight.min.js"></script>
+<link rel="stylesheet" href="css/tomorrow-night.min.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">Johnson</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wujiaixong0@gmail.com" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> hugo travis github 自动化 </h1>
+    <div class="content"> 
+
+<blockquote>
+<p>hugo 是 go 编写的 blog生成器
+比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快</p>
+</blockquote>
+
+<h2 id="安装hugo">安装hugo</h2>
+
+<blockquote>
+<p>go开发，二进制，可直接下载对应版本的<a href="https://github.com/spf13/hugo/releases">releases</a>放到系统PATH
+或包关联安装 brew,apt,yaourt</p>
+</blockquote>
+
+<pre><code class="language-bash">wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz
+tar -xvf  hugo_0.21_Linux-64bit.tar.gz
+sudo cp hugo /usr/local/bin
+</code></pre>
+
+<h2 id="生成blog">生成blog</h2>
+
+<blockquote>
+<p>git管理, 挑选theme设置gitsubmodule, 根据theme编辑 <em>config.toml</em>, 否则可能报错</p>
+</blockquote>
+
+<pre><code class="language-bash">hugo new site blog
+cd blog
+git init
+git check -b raw
+git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk
+echo 'public/' &gt; .gitignore
+touch Makefile #否则会报 no buildable Go source files 
+git add .
+git commit -m 'init blog raw'
+git checkout --orphan master
+git rm -rf .
+git commit -m 'init deploy branch' --allow-empty
+
+</code></pre>
+
+<p><em>hugo-dusk</em> 的 <em>config.toml</em> example</p>
+
+<pre><code>baseurl = &quot;/&quot;
+title = &quot;My site.&quot;
+copyright = &quot;Copyright (c) 2017, all rights reserved.&quot;
+canonifyurls = true
+languageCode = &quot;en-US&quot;
+paginate = 3
+theme = &quot;hugo-dusk&quot;
+
+googleAnalytics = &quot;&quot;
+disqusShortname = &quot;&quot;
+
+[author]
+  name = &quot;&quot;
+
+SectionPagesMenu = &quot;main&quot;
+
+[[menu.main]]
+  name = &quot;Posts&quot;
+  weight = -120
+  identifier = &quot;post&quot;
+  url = &quot;/post/&quot;
+
+[[menu.main]]
+  name = &quot;Tags&quot;
+  weight = -110
+  identifier = &quot;tag&quot;
+  url = &quot;/tags/&quot;
+
+[params.meta]
+  keywords = &quot;blog, tech&quot;
+  description = &quot;Personal blog.&quot;
+
+[params]
+  github = &quot;github id&quot;
+  gitlab = &quot;gitlab id&quot;
+  twitter = &quot;twitter id&quot;
+  linkedin = &quot;linkedin id&quot;
+  email = &quot;myemail&quot;
+</code></pre>
+
+<p>创建 <em>post</em> , 生成 浏览</p>
+
+<pre><code class="language-bash">hugo new post/test.md
+hugo
+hugo server -w
+</code></pre>
+
+<h2 id="关联github-和-travis">关联github 和 travis</h2>
+
+<ul>
+<li>关联远程github</li>
+<li>生成ssh key</li>
+<li>填加github io项目的 <em>deploy key</em> 给 <em>travis</em> 发布用 ,添加 travis_key 到 gitignore</li>
+<li>登录 travis 加密 <em>ssh私钥</em></li>
+</ul>
+
+<pre><code class="language-bash">git checkout raw
+git remote add origin  https://github.com/****.io.git
+ssh-kengen -t 'rsa' -C 'travis' # 输入travis_key
+echo 'travis_key' &gt;&gt; .gitignore
+echo 'travis_key.pub' &gt;&gt; .gitignore
+travis login --auto
+travis whoami
+touch .travis.yml
+travis encrypt-file travis_key --add #  --add 自动添加 解密信息到 .travis.yaml
+cat travis_key.pub | pbcopy # 添加公钥 到 github deploy key，勾选 Allow write access。  linux cat travis_key.pub | xclip -selection cllipboard
+</code></pre>
+
+<p>如果报错 <em>repository not known to <a href="https://api.travis-ci.org/:">https://api.travis-ci.org/:</a></em>  进入 travis-ci.org sync account</p>
+
+<p>修改 .travis.yml 填写正确信息
+例如</p>
+
+<pre><code>language: go
+branches:
+  only:
+    - raw
+env:
+  global:
+    - SSH_KEY=&quot;travis_key&quot;
+    - GIT_NAME=&quot;xxx&quot;
+    - GIT_EMAIL=&quot;xxx@gmail.com&quot;
+    - SOURCE_DIR=&quot;public&quot;
+    - DEPLOY_BRANCH=&quot;raw&quot;
+    - TEMP_DIR=$(sudo mktemp -d /tmp/$REPO_NAME.XXXX)
+before_install:
+- openssl aes-256-cbc -K $encrypted_xxxx_key -iv $encrypted_xxxxx_iv
+  -in travis_key.enc -out travis_key -d
+before_script:
+  - go get -u -v github.com/spf13/hugo
+script:
+  - git submodule init
+  - hugo
+after_success:
+  - chmod a+x ./scripts/deploy.sh
+  - ./scripts/deploy.sh
+</code></pre>
+
+<p>下载发布脚本<a href="https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh">deploy.sh</a></p>
+
+<pre><code class="language-bash">mkdir scripts &amp;&amp; cd scripts
+wget https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh
+git checkout master
+git push -u origin master
+git checkout raw
+git add .
+git commit -m 'add deploy resources'
+git push -u origin master
+</code></pre>
+
+<p>到 <a href="https://travis-ci.org/">https://travis-ci.org/</a>
+启用 io工程
+设置 勾选 Build only if .travis.yml is present</p>
+
+<p>success ！！</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/hugo">#hugo</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/travis">#travis</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Jun 5, 2017 </div>
+  </div>
+
+</footer>
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'johnsonjx';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wujiaixong0@gmail.com" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright"> Copyright (c) 2017, all rights reserved. </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</body>
+</html>
+
