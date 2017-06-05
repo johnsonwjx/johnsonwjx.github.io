@@ -125,7 +125,7 @@ env:
     - GIT_NAME="xxx"
     - GIT_EMAIL="xxx@gmail.com"
     - SOURCE_DIR="public"
-    - DEPLOY_BRANCH="code"
+    - DEPLOY_BRANCH="raw"
     - TEMP_DIR=$(sudo mktemp -d /tmp/$REPO_NAME.XXXX)
 before_install:
 - openssl aes-256-cbc -K $encrypted_xxxx_key -iv $encrypted_xxxxx_iv
@@ -140,8 +140,14 @@ after_success:
   - ./scripts/deploy.sh
 ```
 
-下载发布脚本[deploy.sh](https://raw.githubusercontent.com/haruair/haruair.github.io/code/scripts/deploy.sh)
+下载发布脚本[deploy.sh](https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh)
 ```bash
 mkdir scripts && cd scripts
-wget https://raw.githubusercontent.com/haruair/haruair.github.io/code/scripts/deploy.sh
+wget https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh
+git checkout master
+git push -u origin master
+git checkout raw
+git add .
+git commit -m 'add deploy resources'
+git push -u origin master
 ```
