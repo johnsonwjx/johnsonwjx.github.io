@@ -1,6 +1,6 @@
 +++
-date = "2017-06-05T20:39:10+08:00"
-draft = true
+date = "2017-06-26T11:34:45+08:00"
+draft = false
 title = "arch 安装"
 
 +++
