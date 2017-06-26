@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 14:30:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jun 2017 11:34:45 +0800</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>arch 安装</title>
+      <link>/post/arch-install/</link>
+      <pubDate>Mon, 26 Jun 2017 11:34:45 +0800</pubDate>
+      
+      <guid>/post/arch-install/</guid>
+      <description>Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
+ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
+netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap</description>
+    </item>
     
     <item>
       <title>hexo travis github 集成</title>

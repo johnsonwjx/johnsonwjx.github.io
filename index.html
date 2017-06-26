@@ -8,7 +8,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.22-DEV" />
+<meta name="generator" content="Hugo 0.25-DEV" />
 
 <link rel="canonical" href="/">
 <base href="/" />
@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-06-05T14:30:32&#43;08:00"/>
+<meta property="og:updated_time" content="2017-06-26T11:34:45&#43;08:00"/>
 
 
 
@@ -112,6 +112,33 @@ ga('send', 'pageview');
 
 
   
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/post/arch-install/'> arch 安装</a> </h2>
+    <div class="meta">
+      Jun 26, 2017 - 3 minutes
+    </div>
+    
+<div class="tags">
+    
+</div>
+
+  </header>
+
+  <div class="summary"> Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
+ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
+netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/arch-install/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
     <article class="post-preview">
 
   <header>
