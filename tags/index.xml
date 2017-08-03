@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 14:30:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Aug 2017 10:33:04 +0800</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ddos</title>
+      <link>/tags/ddos/</link>
+      <pubDate>Wed, 02 Aug 2017 10:33:04 +0800</pubDate>
+      
+      <guid>/tags/ddos/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hexo</title>
@@ -31,11 +40,38 @@
     </item>
     
     <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Tue, 01 Aug 2017 14:48:47 +0800</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Wed, 02 Aug 2017 08:20:21 +0800</pubDate>
+      
+      <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Travis</title>
       <link>/tags/travis/</link>
       <pubDate>Mon, 05 Jun 2017 14:30:32 +0800</pubDate>
       
       <guid>/tags/travis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vps</title>
+      <link>/tags/vps/</link>
+      <pubDate>Wed, 02 Aug 2017 10:33:04 +0800</pubDate>
+      
+      <guid>/tags/vps/</guid>
       <description></description>
     </item>
     

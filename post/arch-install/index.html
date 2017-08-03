@@ -7,7 +7,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.25-DEV" />
+<meta name="generator" content="Hugo 0.26-DEV" />
 
 <link rel="canonical" href="/post/arch-install/">
 <base href="/" />
@@ -33,18 +33,10 @@ netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显�
 
 
 
-
-
-  <meta name="twitter:card" content="summary"/>
-
-
-
-<meta name="twitter:text:title" content="arch 安装"/>
-<meta name="twitter:title" content="arch 安装"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="arch 安装"/>
 <meta name="twitter:description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
 ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
 netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap"/>
-
 
 
 
@@ -59,7 +51,7 @@ netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显�
 
 
 
-<meta itemprop="keywords" content="blog,hexo,hugo,travis," />
+<meta itemprop="keywords" content="" />
 
 
 <link rel="stylesheet" href="css/layout.css" />

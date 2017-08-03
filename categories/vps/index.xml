@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Johnson</title>
-    <link>/</link>
-    <description>Recent content on Johnson</description>
+    <title>Vps on Johnson</title>
+    <link>/categories/vps/</link>
+    <description>Recent content in Vps on Johnson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
     <lastBuildDate>Wed, 02 Aug 2017 10:33:04 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/vps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -77,41 +77,6 @@ OpenVZ有几个显著特点：没有交换分区swap（虚拟内存），不能�
 使用32位还是64位的操作系统？ 十分负责任的告诉你，毫不犹豫的选择32位！除非以下两种情况：你的vps内存在超过4G，或者你要运行某的软件只能在64位下运行。 选用32位原因：运行同样的程序，32位占用内存小；
 startup  apt-get update &amp;amp;&amp;amp; apt-get upgrade apt-get install vim 创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc 更新内核   下载内核地址http://kernel.ubuntu.com/~kernel-ppa/mainline
 wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核 #更新 grub 系统引导文件并重启 update-grub reboot    开启bbr   开机后 uname -r 看看是不是内核 &amp;gt;= 4.</description>
-    </item>
-    
-    <item>
-      <title>arch 安装</title>
-      <link>/post/arch-install/</link>
-      <pubDate>Mon, 26 Jun 2017 11:34:45 +0800</pubDate>
-      
-      <guid>/post/arch-install/</guid>
-      <description>Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
-ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
-netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap</description>
-    </item>
-    
-    <item>
-      <title>hexo travis github 集成</title>
-      <link>/post/hexo-travis/</link>
-      <pubDate>Mon, 05 Jun 2017 14:30:32 +0800</pubDate>
-      
-      <guid>/post/hexo-travis/</guid>
-      <description>跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
- touch .travis/ssh_config  编辑ssh_config
-Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
-language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ=&#39;Asia/Shanghai&#39; # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in .</description>
-    </item>
-    
-    <item>
-      <title>hugo travis github 自动化</title>
-      <link>/post/hugo-travis/</link>
-      <pubDate>Mon, 05 Jun 2017 10:24:04 +0800</pubDate>
-      
-      <guid>/post/hugo-travis/</guid>
-      <description>hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
- 好处  hugo安装方便，生成快 集成travis,只需要下载raw分支，新增post，push上去就可以了，本机什么都不用做，甚至不用安装hugo  安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
- wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
- hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo &#39;public/&#39; &amp;gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add .</description>
     </item>
     
   </channel>

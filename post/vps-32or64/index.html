@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Johnson" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.26-DEV" />
+
+<link rel="canonical" href="/post/vps-32or64/">
+<base href="/" />
+<meta property="og:title" content="(转载) vps 32 or 64" />
+<meta property="og:description" content="原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/vps-32or64/" />
+
+
+
+<meta property="article:published_time" content="2017-08-01T15:22:24&#43;08:00"/>
+<meta property="article:modified_time" content="2017-08-01T15:22:24&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="(转载) vps 32 or 64"/>
+<meta name="twitter:description" content="原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。"/>
+
+
+
+<meta itemprop="name" content="(转载) vps 32 or 64">
+<meta itemprop="description" content="原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。">
+
+
+<meta itemprop="dateModified" content="2017-08-01T15:22:24&#43;08:00" />
+<meta itemprop="wordCount" content="28">
+
+
+
+<meta itemprop="keywords" content="vps," />
+
+
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/color-dark.css" />
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100450211-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+<title>
+
+
+     (转载) vps 32 or 64 
+
+</title>
+
+<script src="js/highlight.min.js"></script>
+<link rel="stylesheet" href="css/tomorrow-night.min.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">Johnson</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> (转载) vps 32 or 64 </h1>
+    <div class="content"> <p>原文 <a href="http://vps.bz/article/27.html">http://vps.bz/article/27.html</a>
+购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？
+32位与64位的前生今世
+当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。
+x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。
+32位和64位系统的优缺点
+64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。
+64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。
+通过使用优化的 x64-64 CPU 指令，性能得到提升。
+网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。
+性能损失，因为64位是8字节，相比32位系统只有4字节。
+由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。
+Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。
+查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。
+一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/vps">#vps</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Aug 1, 2017 </div>
+  </div>
+
+</footer>
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'johnsonjx';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright"> Copyright (c) 2017, all rights reserved. </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</body>
+</html>
+
