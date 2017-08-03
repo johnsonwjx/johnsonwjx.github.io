@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/user_add/</loc>
+    <lastmod>2017-08-03T20:07:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/vps-ddos/</loc>
     <lastmod>2017-08-02T10:33:04+08:00</lastmod>
   </url>
@@ -69,19 +74,25 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-08-02T10:33:04+08:00</lastmod>
+    <lastmod>2017-08-03T20:07:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/linux/</loc>
-    <lastmod>2017-08-01T14:48:47+08:00</lastmod>
+    <lastmod>2017-08-03T20:07:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2017-08-03T20:07:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2017-08-02T10:33:04+08:00</lastmod>
+    <lastmod>2017-08-03T20:07:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   

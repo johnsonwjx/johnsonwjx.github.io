@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-06-05T10:24:04&#43;08:00"/>
+<meta property="og:updated_time" content="2017-06-05T14:30:32&#43;08:00"/>
 
 
 
@@ -114,6 +114,42 @@ ga('send', 'pageview');
 
 
   
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/post/hexo-travis/'> hexo travis github 集成</a> </h2>
+    <div class="meta">
+      Jun 5, 2017 - 1 minutes
+    </div>
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/hexo">#hexo</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/travis">#travis</a>
+      </div>
+    
+</div>
+
+  </header>
+
+  <div class="summary"> 跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
+ touch .travis/ssh_config  编辑ssh_config
+Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
+language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ='Asia/Shanghai' # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in . </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/hexo-travis/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
     <article class="post-preview">
 
   <header>

@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-08-02T10:33:04&#43;08:00"/>
+<meta property="og:updated_time" content="2017-08-03T20:07:35&#43;08:00"/>
 
 
 
@@ -117,6 +117,39 @@ ga('send', 'pageview');
     <article class="post-preview">
 
   <header>
+    <h2 class="title"> <a href='/post/user_add/'> useradd tab无效，无配色</a> </h2>
+    <div class="meta">
+      Aug 3, 2017 - 1 minutes
+    </div>
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/linux">#linux</a>
+      </div>
+    
+</div>
+
+  </header>
+
+  <div class="summary"> 新增用户 useradd -m $username 没指定 shell 路径 默认 为sh,应该指定 /bin/bash
+sudo useradd username -s /bin/bash 如果出现这种情况，修改方法也很简单，修改 /etc/passwd 文件，进入这个文件以后，你会看到你的帐号信息，大概应该是这样的：
+root:x:0:0:root:/root:/bin/bash work:x:1000:1000::/home/work  你会发现work的root有区别，我们只需要简单的调整为：
+work:x:1000:1000::/home/work:/bin/bash
+然后保存并退出此文件，然后重新连接远程主机，你在试试，是不是已经恢复了？ </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/user_add/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
     <h2 class="title"> <a href='/post/vps-ddos/'> (转载)DDoS deflate - Linux下防御/减轻DDOS攻击</a> </h2>
     <div class="meta">
       Aug 2, 2017 - 2 minutes
@@ -192,35 +225,6 @@ li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | un
   <footer>
   <div class="rmore">
     <a href='/post/vps-guard/'><nobr>Read more ...</nobr></a>
-  </div>
-  </footer>
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/post/vps-32or64/'> (转载) vps 32 or 64</a> </h2>
-    <div class="meta">
-      Aug 1, 2017 - 1 minutes
-    </div>
-    
-<div class="tags">
-    
-      <div class="tag">
-        <a href="/tags/vps">#vps</a>
-      </div>
-    
-</div>
-
-  </header>
-
-  <div class="summary"> 原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。 </div>
-
-  <footer>
-  <div class="rmore">
-    <a href='/post/vps-32or64/'><nobr>Read more ...</nobr></a>
   </div>
   </footer>
 

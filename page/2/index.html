@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-08-01T14:48:47&#43;08:00"/>
+<meta property="og:updated_time" content="2017-08-01T15:22:24&#43;08:00"/>
 
 
 
@@ -117,6 +117,35 @@ ga('send', 'pageview');
     <article class="post-preview">
 
   <header>
+    <h2 class="title"> <a href='/post/vps-32or64/'> (转载) vps 32 or 64</a> </h2>
+    <div class="meta">
+      Aug 1, 2017 - 1 minutes
+    </div>
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/vps">#vps</a>
+      </div>
+    
+</div>
+
+  </header>
+
+  <div class="summary"> 原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。 </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/vps-32or64/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
     <h2 class="title"> <a href='/post/vps-startup/'> vps 基本设置</a> </h2>
     <div class="meta">
       Aug 1, 2017 - 2 minutes
@@ -181,42 +210,6 @@ netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显�
   <footer>
   <div class="rmore">
     <a href='/post/arch-install/'><nobr>Read more ...</nobr></a>
-  </div>
-  </footer>
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/post/hexo-travis/'> hexo travis github 集成</a> </h2>
-    <div class="meta">
-      Jun 5, 2017 - 1 minutes
-    </div>
-    
-<div class="tags">
-    
-      <div class="tag">
-        <a href="/tags/hexo">#hexo</a>
-      </div>
-    
-      <div class="tag">
-        <a href="/tags/travis">#travis</a>
-      </div>
-    
-</div>
-
-  </header>
-
-  <div class="summary"> 跟 hugo travis github 自动化 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 raw 分支, master hexo-deployer-git 自动创建
- touch .travis/ssh_config  编辑ssh_config
-Host github.com User git StrictHostKeyChecking no IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  .travis.yml 配置
-language: node_js branches: only: - raw # 设置自动化部署的分支 before_install: - export TZ='Asia/Shanghai' # 设置时区 - npm install -g hexo - npm install -g hexo-cli # 将xxxxxxxxxxx替换上面生成的内容 # 这里面的文件路径可根据自己的情况进行修改 # 解密id_rsa_blog.enc 输出到.ssh/文件夹下，命名为id_rsa - openssl aes-256-cbc -K $encrypted_xxxxxxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv -in . </div>
-
-  <footer>
-  <div class="rmore">
-    <a href='/post/hexo-travis/'><nobr>Read more ...</nobr></a>
   </div>
   </footer>
 
