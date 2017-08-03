@@ -1,8 +1,9 @@
 +++
-categories = ["liux"]
-date = "2017-08-03T13:31:13+08:00"
+categories = ["linux"]
+date = "2017-08-03T20:07:35+08:00"
 tags = ["linux"]
-title = "useradd命令行tab键路径补全失效"
+title = "useradd tab无效，无配色"
+
 +++
 
 新增用户 `useradd -m $username` 没指定 *shell* 路径  默认 为*sh*,应该指定 */bin/bash*

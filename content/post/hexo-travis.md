@@ -1,7 +1,7 @@
 +++
 date = "2017-06-05T14:30:32+08:00"
 title = "hexo travis github 集成"
-categories = ["blog"
+categories = ["blog"]
 tags = ["hexo","travis"]
 
 +++
