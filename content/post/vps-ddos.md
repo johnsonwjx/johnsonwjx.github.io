@@ -5,8 +5,10 @@ tags = ["vps","ddos"]
 title = "(转载)DDoS deflate - Linux下防御/减轻DDOS攻击"
 
 +++
+
 原文 <https://www.vpser.net/security/ddos-deflate.html>
-前言
+
+# 前言
 
 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 
@@ -14,16 +16,18 @@ DDoS deflate介绍
 
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 
-DDoS deflate官方网站：http://deflate.medialayer.com/
+DDoS deflate官方网站：<http://deflate.medialayer.com/>
 
 如何确认是否受到DDOS攻击？
 
+```bash
 执行：
 
 netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
 执行后，将会显示服务器上所有的每个IP多少个连接数。
 
 以下是我自己用VPS测试的结果：
+
 
 li88-99:~# netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
 1 114.226.9.132
@@ -40,16 +44,21 @@ li88-99:~# netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort
 8 220.181.61.31    VPS侦探 https://www.vpser.net/
 2311 67.215.242.196
 每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。
+```
 
-1、安装DDoS deflate
+# 安装DDoS deflate
 
+```bash
 wget http://www.inetbase.com/scripts/ddos/install.sh   //下载DDoS  deflate
 chmod 0700 install.sh    //添加权限
 ./install.sh             //执行
-2、配置DDoS deflate
+```
+
+# 配置DDoS deflate
 
 下面是DDoS deflate的默认配置位于/usr/local/ddos/ddos.conf ，内容如下：
 
+```bash
 ##### Paths of the script and other files
 PROGDIR="/usr/local/ddos"
 PROG="/usr/local/ddos/ddos.sh"
@@ -80,14 +89,16 @@ EMAIL_TO="root"   //当IP被屏蔽时给指定邮箱发送邮件，推荐使用�
 
 ##### Number of seconds the banned ip should remain in blacklist.
 BAN_PERIOD=600    //禁用IP时间，默认600秒，可根据情况调整
-用户可根据给默认配置文件加上的注释提示内容，修改配置文件。
 
-查看/usr/local/ddos/ddos.sh文件的第117行
+#用户可根据给默认配置文件加上的注释提示内容，修改配置文件。
+
+#查看/usr/local/ddos/ddos.sh文件的第117行
 
 netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
 
-修改为以下代码即可！
+#修改为以下代码即可！
 
 netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sed -n ‘/[0-9]/p’ | sort | uniq -c | sort -nr > $BAD_IP_LIST
+```
 
 喜欢折腾的可以用Web压力测试软件测试<https://www.vpser.net/opt/webserver-test.html>一下效果，相信DDoS deflate还是能给你的VPS或服务器抵御一部分DDOS攻击，给你的网站更多的保护。

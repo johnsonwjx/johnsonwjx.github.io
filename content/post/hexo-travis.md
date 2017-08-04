@@ -6,29 +6,25 @@ tags = ["hexo","travis"]
 
 +++
 
-> 跟 [hugo travis github 自动化](/post/hugo-travis/) 大致相同，只是发布有些不同
-> 用hexo用 hexo-deployer-git 插件发布
-> 只需要创建 *raw* 分支, *master* hexo-deployer-git 自动创建
+> 跟 [hugo travis github 自动化](/post/hugo-travis/) 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 **raw** 分支, **master** hexo-deployer-git 自动创建
 
 ```bash
  touch .travis/ssh_config
-
 ```
 
 编辑ssh_config
 
-```
+```bash
 Host github.com
     User git
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_rsa
     IdentitiesOnly yes
-
 ```
 
 **.travis.yml** 配置
 
-```
+```javascript
 language: node_js
 branches:
   only:
@@ -61,7 +57,7 @@ script:
 
 修改 _comfig.yml 配置 git deploy信息
 
-```
+``` bash
 deploy:
   type: git
   repo: git@github.com:username/username.github.io.git # 同步的仓库

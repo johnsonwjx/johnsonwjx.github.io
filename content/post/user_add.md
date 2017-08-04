@@ -6,12 +6,11 @@ title = "useradd tab无效，无配色"
 
 +++
 
-新增用户 `useradd -m $username` 没指定 *shell* 路径  默认 为*sh*,应该指定 */bin/bash*
+新增用户 `useradd -m $username` 没指定 **shell** 路径 默认 为_sh_,应该指定 **/bin/bash**
 
-`sudo useradd username -s /bin/bash`
-如果出现这种情况，修改方法也很简单，修改 /etc/passwd 文件，进入这个文件以后，你会看到你的帐号信息，大概应该是这样的：
+`sudo useradd username -s /bin/bash` 如果出现这种情况，修改方法也很简单，修改 /etc/passwd 文件，进入这个文件以后，你会看到你的帐号信息，大概应该是这样的：
 
-```
+```bash
 root:x:0:0:root:/root:/bin/bash
 work:x:1000:1000::/home/work
 ```

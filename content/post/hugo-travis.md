@@ -6,18 +6,16 @@ tags = ["hugo","travis"]
 
 +++
 
-> hugo 是 go 编写的 blog生成器
-> 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
+> hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
 
-## 好处
+# 好处
 
 - hugo安装方便，生成快
 - 集成travis,只需要下载raw分支，新增post，push上去就可以了，本机什么都不用做，甚至不用安装hugo
 
-## 安装hugo
+# 安装hugo
 
-> go开发，二进制，可直接下载对应版本的[releases](https://github.com/spf13/hugo/releases)放到系统PATH
-> 或包关联安装 brew,apt,yaourt
+> go开发，二进制，可直接下载对应版本的[releases](https://github.com/spf13/hugo/releases)放到系统PATH 或包关联安装 brew,apt,yaourt
 
 ```bash
 wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz
@@ -25,9 +23,9 @@ tar -xvf  hugo_0.21_Linux-64bit.tar.gz
 sudo cp hugo /usr/local/bin
 ```
 
-## 生成blog
+# 生成blog
 
-> git管理, 挑选theme设置gitsubmodule, 根据theme编辑 *config.toml*, 否则可能报错
+> git管理, 挑选theme设置gitsubmodule, 根据theme编辑 _config.toml_, 否则可能报错
 
 ```bash
 hugo new site blog
@@ -42,10 +40,9 @@ git commit -m 'init blog raw'
 git checkout --orphan master
 git rm -rf .
 git commit -m 'init deploy branch' --allow-empty
-
 ```
 
-*hugo-dusk* 的 *config.toml* example
+**hugo-dusk** 的 **config.toml** example
 
 ```
 baseurl = "/"
@@ -88,7 +85,7 @@ SectionPagesMenu = "main"
   email = "myemail"
 ```
 
-创建 *post* , 生成 浏览
+# 生成 浏览 **post**
 
 ```bash
 hugo new post/test.md
@@ -96,12 +93,12 @@ hugo
 hugo server -w
 ```
 
-## 关联github 和 travis
+# 关联github 和 travis
 
 - 关联远程github
 - 生成ssh key
-- 填加github io项目的 *deploy key* 给 *travis* 发布用 ,添加 travis_key 到 gitignore
-- 登录 travis 加密 *ssh私钥*
+- 填加github io项目的 _deploy key_ 给 _travis_ 发布用 ,添加 travis_key 到 gitignore
+- 登录 travis 加密 _ssh私钥_
 
 ```bash
 gem isntall travis # 安装 *travis* , arch安装 yaourt -S ruby-travis
@@ -116,10 +113,10 @@ touch .travis.yml
 travis encrypt-file travis_key --add #  --add 自动添加 解密信息到 .travis.yaml
 cat travis_key.pub | pbcopy # 添加公钥 到 github deploy key，勾选 Allow write access。  linux cat travis_key.pub | xclip -selection cllipboard
 ```
-如果报错 *repository not known to https://api.travis-ci.org/:*  进入 travis-ci.org sync account
 
-修改 .travis.yml 填写正确信息
-例如
+如果报错 **_repository not known to <https://api.travis-ci.org/>:_** 进入 travis-ci.org sync account
+
+修改 .travis.yml 填写正确信息 例如
 
 ```
 language: go
@@ -149,6 +146,7 @@ after_success:
 ```
 
 下载发布脚本[deploy.sh](https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh)
+
 ```bash
 mkdir scripts && cd scripts
 wget https://raw.githubusercontent.com/johnsonwjx/johnsonwjx.github.io/raw/scripts/deploy.sh
@@ -159,8 +157,7 @@ git add .
 git commit -m 'add deploy resources'
 git push -u origin master
 ```
-到 <https://travis-ci.org/>
-启用 io工程
-设置 勾选 Build only if .travis.yml is present
+
+到 <https://travis-ci.org/> 启用 io工程 设置 勾选 Build only if .travis.yml is present
 
 success ！！
