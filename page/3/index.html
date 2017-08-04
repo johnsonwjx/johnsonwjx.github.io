@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-06-05T14:30:32&#43;08:00"/>
+<meta property="og:updated_time" content="2017-08-01T14:48:47&#43;08:00"/>
 
 
 
@@ -117,6 +117,66 @@ ga('send', 'pageview');
     <article class="post-preview">
 
   <header>
+    <h2 class="title"> <a href='/post/vps-startup/'> vps 基本设置</a> </h2>
+    <div class="meta">
+      Aug 1, 2017 - 2 minutes
+    </div>
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/vps">#vps</a>
+      </div>
+    
+      <div class="tag">
+        <a href="/tags/linux">#linux</a>
+      </div>
+    
+</div>
+
+  </header>
+
+  <div class="summary"> 基础设置 注意 基于debain 8 ，debain 7 部分命令不同
+基础设置更新内核 passwd #修改root #查看系统信息是否kvm等 hostnamectl hostnamectl set-hostname $hostname #日期时区设置 timedatectl timedatectl set-timezone Asia/Shanghai apt-get update &amp;&amp; apt-get upgrade apt-get install vim #创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc #更新内核 下载内核地址&lt;http://kernel.ubuntu.com/~kernel-ppa/mainline&gt; wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #更新 grub 系统引导文件并重启 update-grub reboot #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核  创建用户,sudo apt-get install sudo #查看 /etc/sudoers 是否%sudo用户组启用了 useradd -m -s /bin/bash $username #加入-s不然Tab无效 passwd $username # 修改$username密码 usermod -G sudo $username  安全相关 修改ssh端口，改用密钥登录,禁用root 和 密码登录 su $username mkdir . </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/vps-startup/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/post/arch-install/'> arch 安装</a> </h2>
+    <div class="meta">
+      Jun 26, 2017 - 3 minutes
+    </div>
+    
+<div class="tags">
+    
+</div>
+
+  </header>
+
+  <div class="summary"> Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话  此时网络仅仅是安装盘的网络，实际arch要安装后设置
+ cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap </div>
+
+  <footer>
+  <div class="rmore">
+    <a href='/post/arch-install/'><nobr>Read more ...</nobr></a>
+  </div>
+  </footer>
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
     <h2 class="title"> <a href='/post/hexo-travis/'> hexo travis github 集成</a> </h2>
     <div class="meta">
       Jun 5, 2017 - 1 minutes
@@ -150,42 +210,6 @@ language: node_js branches: only: - raw # 设置自动化部署的分支 before_
 </article>
 
 
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/post/hugo-travis/'> hugo travis github 自动化</a> </h2>
-    <div class="meta">
-      Jun 5, 2017 - 2 minutes
-    </div>
-    
-<div class="tags">
-    
-      <div class="tag">
-        <a href="/tags/hugo">#hugo</a>
-      </div>
-    
-      <div class="tag">
-        <a href="/tags/travis">#travis</a>
-      </div>
-    
-</div>
-
-  </header>
-
-  <div class="summary"> hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快
- 好处  hugo安装方便，生成快 集成travis,只需要下载raw分支，新增post，push上去就可以了，本机什么都不用做，甚至不用安装hugo  安装hugo  go开发，二进制，可直接下载对应版本的releases放到系统PATH 或包关联安装 brew,apt,yaourt
- wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz tar -xvf hugo_0.21_Linux-64bit.tar.gz sudo cp hugo /usr/local/bin  生成blog  git管理, 挑选theme设置gitsubmodule, 根据theme编辑 config.toml, 否则可能报错
- hugo new site blog cd blog git init git check -b raw git submodule add https://github.com/gyorb/hugo-dusk.git themes/hugo-dusk echo 'public/' &gt; .gitignore touch Makefile #否则会报 no buildable Go source files git add . </div>
-
-  <footer>
-  <div class="rmore">
-    <a href='/post/hugo-travis/'><nobr>Read more ...</nobr></a>
-  </div>
-  </footer>
-
-</article>
-
-
 
 
 <div class="page-nav">
@@ -196,10 +220,12 @@ language: node_js branches: only: - raw # 设置自动化部署的分支 before_
   </div>
 
   <div class="page-num">
-    3/3
+    3/4
   </div>
 
   <div class="page-next">
+    
+    <a href="/page/4/" title="Next page"> >> </a>
     
   </div>
 </div> 

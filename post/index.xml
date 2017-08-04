@@ -7,10 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
-    <lastBuildDate>Thu, 03 Aug 2017 20:07:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Aug 2017 09:59:19 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>(转载) Systemd 入门教程：实战篇</title>
+      <link>/post/system-practise/</link>
+      <pubDate>Fri, 04 Aug 2017 09:59:19 +0800</pubDate>
+      
+      <guid>/post/system-practise/</guid>
+      <description>原文: http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
+开机启动 对于那些支持 Systemd 的软件，安装的时候，会自动在/usr/lib/systemd/system目录添加一个配置文件。 如果你想让该软件开机启动，就执行下面的命令（以httpd.service为例）。
+$ sudo systemctl enable httpd #上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的httpd.service文件。 #这是因为开机时，Systemd只执行/etc/systemd/system目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。  启动服务 设置开机启动以后，软件并不会立即启动，必须等到下一次开机。如果想现在就运行该软件，那么要执行systemctl start命令。
+$ sudo systemctl start httpd 执行上面的命令以后，有可能启动失败，因此要用systemctl status命令查看一下该服务的状态。 $ sudo systemctl status httpd httpd.service - The Apache HTTP Server Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled) Active: active (running) since 金 2014-12-05 12:18:22 JST; 7min ago Main PID: 4349 (httpd) Status: &amp;quot;Total requests: 1; Current requests/sec: 0; Current traffic: 0 B/sec&amp;quot; CGroup: /system.slice/httpd.service ├─4349 /usr/sbin/httpd -DFOREGROUND ├─4350 /usr/sbin/httpd -DFOREGROUND ├─4351 /usr/sbin/httpd -DFOREGROUND ├─4352 /usr/sbin/httpd -DFOREGROUND ├─4353 /usr/sbin/httpd -DFOREGROUND └─4354 /usr/sbin/httpd -DFOREGROUND 12月 05 12:18:22 localhost.</description>
+    </item>
+    
+    <item>
+      <title>(转载)Systemd 入门教程：命令篇</title>
+      <link>/post/systemd/</link>
+      <pubDate>Fri, 04 Aug 2017 09:24:06 +0800</pubDate>
+      
+      <guid>/post/systemd/</guid>
+      <description>原文 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+由来 历史上，Linux 的启动一直采用init进程。 下面的命令用来启动服务。
+$ sudo /etc/init.d/apache2 start # 或者 $ service apache2 start  这种方法有两个缺点。 1. 是启动时间长。init进程是串行启动，只有前一个进程启动完，才会启动下一个进程。 2. 是启动脚本复杂。init进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这往往使得脚本变得很长。
+Systemd 概述  Systemd 就是为了解决这些问题而诞生的。它的设计目标是，为系统的启动和管理提供一套完整的解决方案。 根据 Linux 惯例，字母d是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
+使用了 Systemd，就不需要再用init了。Systemd 取代了initd，成为系统的第一个进程（PID 等于 1），其他进程都是它的子进程。
+ $ systemctl &amp;ndash;version 上面的命令查看 Systemd 的版本。
+ Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反&amp;rdquo;keep simple, keep stupid&amp;rdquo;的Unix 哲学。
+ 系统管理 Systemd 并不是一个命令，而是一组命令，涉及到系统管理的方方面面。
+systemctl systemctl是 Systemd 的主命令，用于管理系统。
+ 重启系统 $ sudo systemctl reboot # 关闭系统，切断电源 $ sudo systemctl poweroff # CPU停止工作 $ sudo systemctl halt # 暂停系统 $ sudo systemctl suspend # 让系统进入冬眠状态 $ sudo systemctl hibernate # 让系统进入交互式休眠状态 $ sudo systemctl hybrid-sleep # 启动进入救援状态（单用户状态） $ sudo systemctl rescue  systemd-analyze systemd-analyze命令用于查看启动耗时。</description>
+    </item>
     
     <item>
       <title>useradd tab无效，无配色</title>
@@ -31,16 +61,13 @@ work:x:1000:1000::/home/work:/bin/bash
       <pubDate>Wed, 02 Aug 2017 10:33:04 +0800</pubDate>
       
       <guid>/post/vps-ddos/</guid>
-      <description>原文 https://www.vpser.net/security/ddos-deflate.html 前言
-互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
+      <description>原文 https://www.vpser.net/security/ddos-deflate.html
+前言 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 DDoS deflate介绍
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 DDoS deflate官方网站：http://deflate.medialayer.com/
 如何确认是否受到DDOS攻击？
-执行：
-netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。
-以下是我自己用VPS测试的结果：
-li88-99:~# netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.</description>
+执行： netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。 以下是我自己用VPS测试的结果： li88-99:~# netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.</description>
     </item>
     
     <item>
@@ -50,15 +77,15 @@ li88-99:~# netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | s
       
       <guid>/post/vps-guard/</guid>
       <description>原文 http://securityer.lofter.com/post/1d0f3ee7_e0240b4
-1. Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配日志的错误信息（正则式匹配）执行相应的屏蔽动作。
+Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配日志的错误信息（正则式匹配）执行相应的屏蔽动作。
 功能和特性
  支持大量服务。如sshd,apache,qmail,proftpd,sasl等等
  支持多种动作。如iptables,tcp-wrapper,shorewall(iptables第三方工具),mail notifications(邮件通知)等等。
  在logpath选项中支持通配符
  需要Gamin支持(注：Gamin是用于监视文件和目录是否更改的服务工具)
  需要安装python,iptables,tcp-wrapper,shorewall,Gamin。如果想要发邮件，那必需安装postfix或sendmail
-  测试环境  docker pull superitman/fail2ban docker run -d -it \-v /var/log:/var/log \--name fail2ban \--net host \--privileged \superitman/fail2ban:latest  2. DenyHosts DenyHosts是用Python语言写的一个程序，它会分析sshd的日志文件（/var/log/secure），当发现重复的攻击时就会记录IP到/etc/hosts.deny文件，从而达到自动屏IP的功能
-测试环境  docker pull custa/docker-denyhosts docker run -d --restart=always --name denyhosts \ -v /var/log/secure:/var/log/secure -v /etc/hosts.deny:/etc/hosts.deny \ custa/docker-denyhosts  denyhosts.cfg配置文件说明 SECURE_LOG = /var/log/secure #ssh 日志文件，它是根据这个文件来判断的，如还有其他的只要更改名字即可，例如将secure改为secure.1等 HOSTS_DENY = /etc/hosts.deny #控制用户登陆的文件，将多次连接失败的IP添加到此文件，达到屏蔽的作用&amp;lt;br&amp;gt; PURGE_DENY = #过多久后清除已经禁止的，我这里为空表示永远不解禁 BLOCK_SERVICE = sshd #禁止的服务名，如还要添加其他服务，只需添加逗号跟上相应的服务即可 DENY_THRESHOLD_INVALID = 1 #允许无效用户失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_VALID = 2 #允许有效用户登录失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_ROOT = 3 #允许root登录失败的次数&amp;lt;br&amp;gt; HOSTNAME_LOOKUP=NO # 是否做域名反解，这里表示不做 ADMIN_EMAIL = .</description>
+  测试环境 docker pull superitman/fail2ban docker run -d -it \-v /var/log:/var/log \--name fail2ban \--net host \--privileged \superitman/fail2ban:latest  DenyHosts DenyHosts是用Python语言写的一个程序，它会分析sshd的日志文件（/var/log/secure），当发现重复的攻击时就会记录IP到/etc/hosts.deny文件，从而达到自动屏IP的功能
+测试环境 docker pull custa/docker-denyhosts docker run -d --restart=always --name denyhosts \ -v /var/log/secure:/var/log/secure -v /etc/hosts.deny:/etc/hosts.deny \ custa/docker-denyhosts  denyhosts.cfg配置文件说明 SECURE_LOG = /var/log/secure #ssh 日志文件，它是根据这个文件来判断的，如还有其他的只要更改名字即可，例如将secure改为secure.1等 HOSTS_DENY = /etc/hosts.deny #控制用户登陆的文件，将多次连接失败的IP添加到此文件，达到屏蔽的作用&amp;lt;br&amp;gt; PURGE_DENY = #过多久后清除已经禁止的，我这里为空表示永远不解禁 BLOCK_SERVICE = sshd #禁止的服务名，如还要添加其他服务，只需添加逗号跟上相应的服务即可 DENY_THRESHOLD_INVALID = 1 #允许无效用户失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_VALID = 2 #允许有效用户登录失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_ROOT = 3 #允许root登录失败的次数&amp;lt;br&amp;gt; HOSTNAME_LOOKUP=NO # 是否做域名反解，这里表示不做 ADMIN_EMAIL = .</description>
     </item>
     
     <item>
@@ -67,7 +94,10 @@ li88-99:~# netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | s
       <pubDate>Tue, 01 Aug 2017 15:22:24 +0800</pubDate>
       
       <guid>/post/vps-32or64/</guid>
-      <description>原文 http://vps.bz/article/27.html 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。 32位和64位系统的优缺点 64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。 查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。</description>
+      <description>原文 http://vps.bz/article/27.html
+ 购买VPS的时候都需要我们选择需要安装的操作系统，Linux或者Windows，但是操作系统有32bit与64bit两种，我们该选择哪一种呢？
+ 32位与64位的前生今世 当前广泛使用的CPU架构有x86和x86_64。其中x86是Intel很早推出的32位CPU架构，以前我们使用的绝大多数桌面CPU都是x86架构，包括AMD的一些CPU。 x86_64是由AMD公司在最近几年设计推出的64位CPU架构，x86_64架构刚推出的时候被称为AMD64。x86_64兼容32位的x86架构，是一个很成功的64位CPU架构。Intel在AMD推出x86_64之后，也推出了自己的x86_64架构CPU，只不过Intel称呼x86_64为Intel64，EM64T。
+32位和64位系统的优缺点  64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。  查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。</description>
     </item>
     
     <item>
@@ -76,20 +106,8 @@ li88-99:~# netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | s
       <pubDate>Tue, 01 Aug 2017 14:48:47 +0800</pubDate>
       
       <guid>/post/vps-startup/</guid>
-      <description>虚拟主机、vps、实体服务器的对比小结 vps的重要参数 我们选购时，要重点考察以下几个技术参数：虚拟化技术，操作系统，内存大小，硬盘容量，每月流量，独立IP个数，服务器所在地，Ping值等。
-vps的虚拟化技术 vps根本上就是虚拟机，都是在一定的虚拟化技术上构建的。目前用得最多的虚拟化技术是Xen, OpenVZ, Hyper-V, vmware. 下面针对vps有用的部分粗略的讲一下，了解更多可以参看这里 xen、kvm、vmware、hyper-v等虚拟化技术的比较
-其中Hyper-V是微软自家的虚拟化技术，只能在windows上运行，也就是一般买windows系统的vps时，很可能是Hyper-V的。vmware国内的一些较小主机商会用，跑windows或linux的都有，用过虚拟机的朋友应该知道它。
-另外两种都是主要跑linux的虚拟化技术。
-其中OpenVZ是基于操作系统的虚拟化技术，它运行效率跟真机(实体服务器)几乎一样。不过也别高兴过早了，vps的性能都是来自于宿主机的，因为宿主机上有很多vps，每个vps可以获得的资源事实上并不很高，具体这要看宿主机本身硬件性能如何、上面运行了多少vps。
-OpenVZ有几个显著特点：没有交换分区swap（虚拟内存），不能运行pptp协议的vpn，容易被超售。
- 关于超售：假设宿主机有16G内存，但开出20台1G内存的vps，都卖出去了；而这20台vps里都显示1G内存，这就是超售。事实上OpenVZ通常超售得更厉害！
- Xen，是一种称为半虚似化的技术，性能比真机有所损失，但虚拟出来的系统跟真机相似度极高，有swap，可以运行pptp的vpn，不容易超售。在xen的linux上，可以更换或升级内核；据说甚至可以再装个虚拟机环境虚拟出vps（没有亲眼见过，不过即使成功，性能也是极其低下，没有实用性的）。
-一般来说，大家都认同以下说法：
- 购买同等配置的vps，xen的性能要明显优于OpenVZ. 最主要的原因就是超售问题。 OpenVZ没有swap，通过free命令查出的内存，其中一部分事实上是宿主机的swap的，只是被vps当成物理内存； 没有不超售的OpenVZ vps. 512M的Xen，其内存性能比1G OpenVZ vps的好，甚至是远超。 OpenVZ内存用完时，系统就差不多只能重启了，因为这时远程ssh连接也无法建立的。而xen的，还有swap可用，通常不至于要重启。 看上去，xen几乎是完胜于openvz，那价格呢，也一样，xen远远高于openvz. 毕竟一分价钱一分货。
- 关于xen与openvz的了解更多，请参阅这里 http://www.path8.net/tn/archives/5383
-使用32位还是64位的操作系统？ 十分负责任的告诉你，毫不犹豫的选择32位！除非以下两种情况：你的vps内存在超过4G，或者你要运行某的软件只能在64位下运行。 选用32位原因：运行同样的程序，32位占用内存小；
-startup  apt-get update &amp;amp;&amp;amp; apt-get upgrade apt-get install vim 创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc 更新内核   下载内核地址http://kernel.ubuntu.com/~kernel-ppa/mainline
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核 #更新 grub 系统引导文件并重启 update-grub reboot    开启bbr   开机后 uname -r 看看是不是内核 &amp;gt;= 4.</description>
+      <description>基础设置 注意 基于debain 8 ，debain 7 部分命令不同
+基础设置更新内核 passwd #修改root #查看系统信息是否kvm等 hostnamectl hostnamectl set-hostname $hostname #日期时区设置 timedatectl timedatectl set-timezone Asia/Shanghai apt-get update &amp;amp;&amp;amp; apt-get upgrade apt-get install vim #创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc #更新内核 下载内核地址&amp;lt;http://kernel.ubuntu.com/~kernel-ppa/mainline&amp;gt; wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #更新 grub 系统引导文件并重启 update-grub reboot #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核  创建用户,sudo apt-get install sudo #查看 /etc/sudoers 是否%sudo用户组启用了 useradd -m -s /bin/bash $username #加入-s不然Tab无效 passwd $username # 修改$username密码 usermod -G sudo $username  安全相关 修改ssh端口，改用密钥登录,禁用root 和 密码登录 su $username mkdir .</description>
     </item>
     
     <item>
@@ -98,9 +116,8 @@ wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-
       <pubDate>Mon, 26 Jun 2017 11:34:45 +0800</pubDate>
       
       <guid>/post/arch-install/</guid>
-      <description>Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
-ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
-netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap</description>
+      <description>Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话  此时网络仅仅是安装盘的网络，实际arch要安装后设置
+ cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap</description>
     </item>
     
     <item>

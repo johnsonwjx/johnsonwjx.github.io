@@ -130,28 +130,24 @@ ga('send', 'pageview');
 <article class="post">
     <h1 class="title"> hexo travis github 集成 </h1>
     <div class="content"> <blockquote>
-<p>跟 <a href="/post/hugo-travis/">hugo travis github 自动化</a> 大致相同，只是发布有些不同
-用hexo用 hexo-deployer-git 插件发布
-只需要创建 <em>raw</em> 分支, <em>master</em> hexo-deployer-git 自动创建</p>
+<p>跟 <a href="/post/hugo-travis/">hugo travis github 自动化</a> 大致相同，只是发布有些不同 用hexo用 hexo-deployer-git 插件发布 只需要创建 <strong>raw</strong> 分支, <strong>master</strong> hexo-deployer-git 自动创建</p>
 </blockquote>
 
 <pre><code class="language-bash"> touch .travis/ssh_config
-
 </code></pre>
 
 <p>编辑ssh_config</p>
 
-<pre><code>Host github.com
+<pre><code class="language-bash">Host github.com
     User git
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_rsa
     IdentitiesOnly yes
-
 </code></pre>
 
 <p><strong>.travis.yml</strong> 配置</p>
 
-<pre><code>language: node_js
+<pre><code class="language-javascript">language: node_js
 branches:
   only:
   - raw  # 设置自动化部署的分支
@@ -183,7 +179,7 @@ script:
 
 <p>修改 _comfig.yml 配置 git deploy信息</p>
 
-<pre><code>deploy:
+<pre><code class="language-bash">deploy:
   type: git
   repo: git@github.com:username/username.github.io.git # 同步的仓库
   branch: raw

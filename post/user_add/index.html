@@ -132,12 +132,11 @@ ga('send', 'pageview');
 
 <article class="post">
     <h1 class="title"> useradd tab无效，无配色 </h1>
-    <div class="content"> <p>新增用户 <code>useradd -m $username</code> 没指定 <em>shell</em> 路径  默认 为<em>sh</em>,应该指定 <em>/bin/bash</em></p>
+    <div class="content"> <p>新增用户 <code>useradd -m $username</code> 没指定 <strong>shell</strong> 路径 默认 为<em>sh</em>,应该指定 <strong>/bin/bash</strong></p>
 
-<p><code>sudo useradd username -s /bin/bash</code>
-如果出现这种情况，修改方法也很简单，修改 /etc/passwd 文件，进入这个文件以后，你会看到你的帐号信息，大概应该是这样的：</p>
+<p><code>sudo useradd username -s /bin/bash</code> 如果出现这种情况，修改方法也很简单，修改 /etc/passwd 文件，进入这个文件以后，你会看到你的帐号信息，大概应该是这样的：</p>
 
-<pre><code>root:x:0:0:root:/root:/bin/bash
+<pre><code class="language-bash">root:x:0:0:root:/root:/bin/bash
 work:x:1000:1000::/home/work
 </code></pre>
 

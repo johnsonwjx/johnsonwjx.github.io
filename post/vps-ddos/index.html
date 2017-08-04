@@ -12,16 +12,13 @@
 <link rel="canonical" href="/post/vps-ddos/">
 <base href="/" />
 <meta property="og:title" content="(转载)DDoS deflate - Linux下防御/减轻DDOS攻击" />
-<meta property="og:description" content="原文 https://www.vpser.net/security/ddos-deflate.html 前言
-互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
+<meta property="og:description" content="原文 https://www.vpser.net/security/ddos-deflate.html
+前言 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 DDoS deflate介绍
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 DDoS deflate官方网站：http://deflate.medialayer.com/
 如何确认是否受到DDOS攻击？
-执行：
-netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。
-以下是我自己用VPS测试的结果：
-li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117." />
+执行： netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。 以下是我自己用VPS测试的结果： li88-99:~# netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/vps-ddos/" />
 
@@ -41,34 +38,28 @@ li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | un
 
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="(转载)DDoS deflate - Linux下防御/减轻DDOS攻击"/>
-<meta name="twitter:description" content="原文 https://www.vpser.net/security/ddos-deflate.html 前言
-互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
+<meta name="twitter:description" content="原文 https://www.vpser.net/security/ddos-deflate.html
+前言 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 DDoS deflate介绍
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 DDoS deflate官方网站：http://deflate.medialayer.com/
 如何确认是否受到DDOS攻击？
-执行：
-netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。
-以下是我自己用VPS测试的结果：
-li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117."/>
+执行： netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。 以下是我自己用VPS测试的结果： li88-99:~# netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117."/>
 
 
 
 <meta itemprop="name" content="(转载)DDoS deflate - Linux下防御/减轻DDOS攻击">
-<meta itemprop="description" content="原文 https://www.vpser.net/security/ddos-deflate.html 前言
-互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
+<meta itemprop="description" content="原文 https://www.vpser.net/security/ddos-deflate.html
+前言 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 DDoS deflate介绍
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 DDoS deflate官方网站：http://deflate.medialayer.com/
 如何确认是否受到DDOS攻击？
-执行：
-netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。
-以下是我自己用VPS测试的结果：
-li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.">
+执行： netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。 以下是我自己用VPS测试的结果： li88-99:~# netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.">
 
 
 <meta itemprop="dateModified" content="2017-08-02T10:33:04&#43;08:00" />
-<meta itemprop="wordCount" content="273">
+<meta itemprop="wordCount" content="285">
 
 
 
@@ -149,8 +140,9 @@ ga('send', 'pageview');
     <h1 class="title"> (转载)DDoS deflate - Linux下防御/减轻DDOS攻击 </h1>
     <div class="content"> 
 
-<p>原文 <a href="https://www.vpser.net/security/ddos-deflate.html">https://www.vpser.net/security/ddos-deflate.html</a>
-前言</p>
+<p>原文 <a href="https://www.vpser.net/security/ddos-deflate.html">https://www.vpser.net/security/ddos-deflate.html</a></p>
+
+<h1 id="前言">前言</h1>
 
 <p>互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。</p>
 
@@ -162,14 +154,15 @@ ga('send', 'pageview');
 
 <p>如何确认是否受到DDOS攻击？</p>
 
-<p>执行：</p>
+<pre><code class="language-bash">执行：
 
-<p>netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n
-执行后，将会显示服务器上所有的每个IP多少个连接数。</p>
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+执行后，将会显示服务器上所有的每个IP多少个连接数。
 
-<p>以下是我自己用VPS测试的结果：</p>
+以下是我自己用VPS测试的结果：
 
-<p>li88-99:~# netstat -ntu | awk &lsquo;{print $5}&rsquo; | cut -d: -f1 | sort | uniq -c | sort -n
+
+li88-99:~# netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
 1 114.226.9.132
 1 174.129.237.157
 1 58.60.118.142
@@ -181,70 +174,63 @@ ga('send', 'pageview');
 4 117.36.231.253
 4 119.162.46.124
 6 219.140.232.128
-8 220.181.61.31    VPS侦探 <a href="https://www.vpser.net/">https://www.vpser.net/</a>
+8 220.181.61.31    VPS侦探 https://www.vpser.net/
 2311 67.215.242.196
-每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。</p>
+每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。
+</code></pre>
 
-<p>1、安装DDoS deflate</p>
+<h1 id="安装ddos-deflate">安装DDoS deflate</h1>
 
-<p>wget <a href="http://www.inetbase.com/scripts/ddos/install.sh">http://www.inetbase.com/scripts/ddos/install.sh</a>   //下载DDoS  deflate
+<pre><code class="language-bash">wget http://www.inetbase.com/scripts/ddos/install.sh   //下载DDoS  deflate
 chmod 0700 install.sh    //添加权限
 ./install.sh             //执行
-2、配置DDoS deflate</p>
+</code></pre>
+
+<h1 id="配置ddos-deflate">配置DDoS deflate</h1>
 
 <p>下面是DDoS deflate的默认配置位于/usr/local/ddos/ddos.conf ，内容如下：</p>
 
-<h5 id="paths-of-the-script-and-other-files">Paths of the script and other files</h5>
+<pre><code class="language-bash">##### Paths of the script and other files
+PROGDIR=&quot;/usr/local/ddos&quot;
+PROG=&quot;/usr/local/ddos/ddos.sh&quot;
+IGNORE_IP_LIST=&quot;/usr/local/ddos/ignore.ip.list&quot;  //IP地址白名单
+CRON=&quot;/etc/cron.d/ddos.cron&quot;    //定时执行程序
+APF=&quot;/etc/apf/apf&quot;
+IPT=&quot;/sbin/iptables&quot;
 
-<p>PROGDIR=&ldquo;/usr/local/ddos&rdquo;
-PROG=&ldquo;/usr/local/ddos/ddos.sh&rdquo;
-IGNORE_IP_LIST=&ldquo;/usr/local/ddos/ignore.ip.list&rdquo;  //IP地址白名单
-CRON=&ldquo;/etc/cron.d/ddos.cron&rdquo;    //定时执行程序
-APF=&ldquo;/etc/apf/apf&rdquo;
-IPT=&ldquo;/sbin/iptables&rdquo;</p>
+##### frequency in minutes for running the script
+##### Caution: Every time this setting is changed, run the script with --cron
+#####          option so that the new frequency takes effect
+FREQ=1   //检查时间间隔，默认1分钟
 
-<h5 id="frequency-in-minutes-for-running-the-script">frequency in minutes for running the script</h5>
+##### How many connections define a bad IP? Indicate that below.
+NO_OF_CONNECTIONS=150     //最大连接数，超过这个数IP就会被屏蔽，一般默认即可
 
-<h5 id="caution-every-time-this-setting-is-changed-run-the-script-with-cron">Caution: Every time this setting is changed, run the script with &ndash;cron</h5>
+##### APF_BAN=1 (Make sure your APF version is atleast 0.96)
+##### APF_BAN=0 (Uses iptables for banning ips instead of APF)
+APF_BAN=1        //使用APF还是iptables。推荐使用iptables,将APF_BAN的值改为0即可。
 
-<h5 id="option-so-that-the-new-frequency-takes-effect">option so that the new frequency takes effect</h5>
+##### KILL=0 (Bad IPs are'nt banned, good for interactive execution of script)
+##### KILL=1 (Recommended setting)
+KILL=1   //是否屏蔽IP，默认即可
 
-<p>FREQ=1   //检查时间间隔，默认1分钟</p>
+##### An email is sent to the following address when an IP is banned.
+##### Blank would suppress sending of mails
+EMAIL_TO=&quot;root&quot;   //当IP被屏蔽时给指定邮箱发送邮件，推荐使用，换成自己的邮箱即可
 
-<h5 id="how-many-connections-define-a-bad-ip-indicate-that-below">How many connections define a bad IP? Indicate that below.</h5>
+##### Number of seconds the banned ip should remain in blacklist.
+BAN_PERIOD=600    //禁用IP时间，默认600秒，可根据情况调整
 
-<p>NO_OF_CONNECTIONS=150     //最大连接数，超过这个数IP就会被屏蔽，一般默认即可</p>
+#用户可根据给默认配置文件加上的注释提示内容，修改配置文件。
 
-<h5 id="apf-ban-1-make-sure-your-apf-version-is-atleast-0-96">APF_BAN=1 (Make sure your APF version is atleast 0.96)</h5>
+#查看/usr/local/ddos/ddos.sh文件的第117行
 
-<h5 id="apf-ban-0-uses-iptables-for-banning-ips-instead-of-apf">APF_BAN=0 (Uses iptables for banning ips instead of APF)</h5>
+netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sort | uniq -c | sort -nr &gt; $BAD_IP_LIST
 
-<p>APF_BAN=1        //使用APF还是iptables。推荐使用iptables,将APF_BAN的值改为0即可。</p>
+#修改为以下代码即可！
 
-<h5 id="kill-0-bad-ips-are-nt-banned-good-for-interactive-execution-of-script">KILL=0 (Bad IPs are&rsquo;nt banned, good for interactive execution of script)</h5>
-
-<h5 id="kill-1-recommended-setting">KILL=1 (Recommended setting)</h5>
-
-<p>KILL=1   //是否屏蔽IP，默认即可</p>
-
-<h5 id="an-email-is-sent-to-the-following-address-when-an-ip-is-banned">An email is sent to the following address when an IP is banned.</h5>
-
-<h5 id="blank-would-suppress-sending-of-mails">Blank would suppress sending of mails</h5>
-
-<p>EMAIL_TO=&ldquo;root&rdquo;   //当IP被屏蔽时给指定邮箱发送邮件，推荐使用，换成自己的邮箱即可</p>
-
-<h5 id="number-of-seconds-the-banned-ip-should-remain-in-blacklist">Number of seconds the banned ip should remain in blacklist.</h5>
-
-<p>BAN_PERIOD=600    //禁用IP时间，默认600秒，可根据情况调整
-用户可根据给默认配置文件加上的注释提示内容，修改配置文件。</p>
-
-<p>查看/usr/local/ddos/ddos.sh文件的第117行</p>
-
-<p>netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sort | uniq -c | sort -nr &gt; $BAD_IP_LIST</p>
-
-<p>修改为以下代码即可！</p>
-
-<p>netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sed -n ‘/[0-9]/p’ | sort | uniq -c | sort -nr &gt; $BAD_IP_LIST</p>
+netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sed -n ‘/[0-9]/p’ | sort | uniq -c | sort -nr &gt; $BAD_IP_LIST
+</code></pre>
 
 <p>喜欢折腾的可以用Web压力测试软件测试<a href="https://www.vpser.net/opt/webserver-test.html">https://www.vpser.net/opt/webserver-test.html</a>一下效果，相信DDoS deflate还是能给你的VPS或服务器抵御一部分DDOS攻击，给你的网站更多的保护。</p>
  </div>

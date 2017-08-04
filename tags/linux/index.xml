@@ -7,10 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
-    <lastBuildDate>Thu, 03 Aug 2017 20:07:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Aug 2017 09:59:19 +0800</lastBuildDate>
     
 	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>(转载) Systemd 入门教程：实战篇</title>
+      <link>/post/system-practise/</link>
+      <pubDate>Fri, 04 Aug 2017 09:59:19 +0800</pubDate>
+      
+      <guid>/post/system-practise/</guid>
+      <description>原文: http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
+开机启动 对于那些支持 Systemd 的软件，安装的时候，会自动在/usr/lib/systemd/system目录添加一个配置文件。 如果你想让该软件开机启动，就执行下面的命令（以httpd.service为例）。
+$ sudo systemctl enable httpd #上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的httpd.service文件。 #这是因为开机时，Systemd只执行/etc/systemd/system目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。  启动服务 设置开机启动以后，软件并不会立即启动，必须等到下一次开机。如果想现在就运行该软件，那么要执行systemctl start命令。
+$ sudo systemctl start httpd 执行上面的命令以后，有可能启动失败，因此要用systemctl status命令查看一下该服务的状态。 $ sudo systemctl status httpd httpd.service - The Apache HTTP Server Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled) Active: active (running) since 金 2014-12-05 12:18:22 JST; 7min ago Main PID: 4349 (httpd) Status: &amp;quot;Total requests: 1; Current requests/sec: 0; Current traffic: 0 B/sec&amp;quot; CGroup: /system.slice/httpd.service ├─4349 /usr/sbin/httpd -DFOREGROUND ├─4350 /usr/sbin/httpd -DFOREGROUND ├─4351 /usr/sbin/httpd -DFOREGROUND ├─4352 /usr/sbin/httpd -DFOREGROUND ├─4353 /usr/sbin/httpd -DFOREGROUND └─4354 /usr/sbin/httpd -DFOREGROUND 12月 05 12:18:22 localhost.</description>
+    </item>
+    
+    <item>
+      <title>(转载)Systemd 入门教程：命令篇</title>
+      <link>/post/systemd/</link>
+      <pubDate>Fri, 04 Aug 2017 09:24:06 +0800</pubDate>
+      
+      <guid>/post/systemd/</guid>
+      <description>原文 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+由来 历史上，Linux 的启动一直采用init进程。 下面的命令用来启动服务。
+$ sudo /etc/init.d/apache2 start # 或者 $ service apache2 start  这种方法有两个缺点。 1. 是启动时间长。init进程是串行启动，只有前一个进程启动完，才会启动下一个进程。 2. 是启动脚本复杂。init进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这往往使得脚本变得很长。
+Systemd 概述  Systemd 就是为了解决这些问题而诞生的。它的设计目标是，为系统的启动和管理提供一套完整的解决方案。 根据 Linux 惯例，字母d是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
+使用了 Systemd，就不需要再用init了。Systemd 取代了initd，成为系统的第一个进程（PID 等于 1），其他进程都是它的子进程。
+ $ systemctl &amp;ndash;version 上面的命令查看 Systemd 的版本。
+ Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反&amp;rdquo;keep simple, keep stupid&amp;rdquo;的Unix 哲学。
+ 系统管理 Systemd 并不是一个命令，而是一组命令，涉及到系统管理的方方面面。
+systemctl systemctl是 Systemd 的主命令，用于管理系统。
+ 重启系统 $ sudo systemctl reboot # 关闭系统，切断电源 $ sudo systemctl poweroff # CPU停止工作 $ sudo systemctl halt # 暂停系统 $ sudo systemctl suspend # 让系统进入冬眠状态 $ sudo systemctl hibernate # 让系统进入交互式休眠状态 $ sudo systemctl hybrid-sleep # 启动进入救援状态（单用户状态） $ sudo systemctl rescue  systemd-analyze systemd-analyze命令用于查看启动耗时。</description>
+    </item>
     
     <item>
       <title>useradd tab无效，无配色</title>
@@ -31,20 +61,8 @@ work:x:1000:1000::/home/work:/bin/bash
       <pubDate>Tue, 01 Aug 2017 14:48:47 +0800</pubDate>
       
       <guid>/post/vps-startup/</guid>
-      <description>虚拟主机、vps、实体服务器的对比小结 vps的重要参数 我们选购时，要重点考察以下几个技术参数：虚拟化技术，操作系统，内存大小，硬盘容量，每月流量，独立IP个数，服务器所在地，Ping值等。
-vps的虚拟化技术 vps根本上就是虚拟机，都是在一定的虚拟化技术上构建的。目前用得最多的虚拟化技术是Xen, OpenVZ, Hyper-V, vmware. 下面针对vps有用的部分粗略的讲一下，了解更多可以参看这里 xen、kvm、vmware、hyper-v等虚拟化技术的比较
-其中Hyper-V是微软自家的虚拟化技术，只能在windows上运行，也就是一般买windows系统的vps时，很可能是Hyper-V的。vmware国内的一些较小主机商会用，跑windows或linux的都有，用过虚拟机的朋友应该知道它。
-另外两种都是主要跑linux的虚拟化技术。
-其中OpenVZ是基于操作系统的虚拟化技术，它运行效率跟真机(实体服务器)几乎一样。不过也别高兴过早了，vps的性能都是来自于宿主机的，因为宿主机上有很多vps，每个vps可以获得的资源事实上并不很高，具体这要看宿主机本身硬件性能如何、上面运行了多少vps。
-OpenVZ有几个显著特点：没有交换分区swap（虚拟内存），不能运行pptp协议的vpn，容易被超售。
- 关于超售：假设宿主机有16G内存，但开出20台1G内存的vps，都卖出去了；而这20台vps里都显示1G内存，这就是超售。事实上OpenVZ通常超售得更厉害！
- Xen，是一种称为半虚似化的技术，性能比真机有所损失，但虚拟出来的系统跟真机相似度极高，有swap，可以运行pptp的vpn，不容易超售。在xen的linux上，可以更换或升级内核；据说甚至可以再装个虚拟机环境虚拟出vps（没有亲眼见过，不过即使成功，性能也是极其低下，没有实用性的）。
-一般来说，大家都认同以下说法：
- 购买同等配置的vps，xen的性能要明显优于OpenVZ. 最主要的原因就是超售问题。 OpenVZ没有swap，通过free命令查出的内存，其中一部分事实上是宿主机的swap的，只是被vps当成物理内存； 没有不超售的OpenVZ vps. 512M的Xen，其内存性能比1G OpenVZ vps的好，甚至是远超。 OpenVZ内存用完时，系统就差不多只能重启了，因为这时远程ssh连接也无法建立的。而xen的，还有swap可用，通常不至于要重启。 看上去，xen几乎是完胜于openvz，那价格呢，也一样，xen远远高于openvz. 毕竟一分价钱一分货。
- 关于xen与openvz的了解更多，请参阅这里 http://www.path8.net/tn/archives/5383
-使用32位还是64位的操作系统？ 十分负责任的告诉你，毫不犹豫的选择32位！除非以下两种情况：你的vps内存在超过4G，或者你要运行某的软件只能在64位下运行。 选用32位原因：运行同样的程序，32位占用内存小；
-startup  apt-get update &amp;amp;&amp;amp; apt-get upgrade apt-get install vim 创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc 更新内核   下载内核地址http://kernel.ubuntu.com/~kernel-ppa/mainline
-wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核 #更新 grub 系统引导文件并重启 update-grub reboot    开启bbr   开机后 uname -r 看看是不是内核 &amp;gt;= 4.</description>
+      <description>基础设置 注意 基于debain 8 ，debain 7 部分命令不同
+基础设置更新内核 passwd #修改root #查看系统信息是否kvm等 hostnamectl hostnamectl set-hostname $hostname #日期时区设置 timedatectl timedatectl set-timezone Asia/Shanghai apt-get update &amp;amp;&amp;amp; apt-get upgrade apt-get install vim #创建.vimrc wget -c https://raw.githubusercontent.com/johnsonwjx/vim-for-server/master/vimrc -O .vimrc #更新内核 下载内核地址&amp;lt;http://kernel.ubuntu.com/~kernel-ppa/mainline&amp;gt; wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb #安装内核 dpkg -i linux-image-4.*.deb #更新 grub 系统引导文件并重启 update-grub reboot #删除旧内核 dpkg -l|grep linux-image apt-get purge 旧内核  创建用户,sudo apt-get install sudo #查看 /etc/sudoers 是否%sudo用户组启用了 useradd -m -s /bin/bash $username #加入-s不然Tab无效 passwd $username # 修改$username密码 usermod -G sudo $username  安全相关 修改ssh端口，改用密钥登录,禁用root 和 密码登录 su $username mkdir .</description>
     </item>
     
   </channel>

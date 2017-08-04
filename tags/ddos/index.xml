@@ -18,16 +18,13 @@
       <pubDate>Wed, 02 Aug 2017 10:33:04 +0800</pubDate>
       
       <guid>/post/vps-ddos/</guid>
-      <description>原文 https://www.vpser.net/security/ddos-deflate.html 前言
-互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
+      <description>原文 https://www.vpser.net/security/ddos-deflate.html
+前言 互联网如同现实社会一样充满钩心斗角，网站被DDOS也成为站长最头疼的事。在没有硬防的情况下，寻找软件代替是最直接的方法，比如用iptables，但是iptables不能在自动屏蔽，只能手动屏蔽。今天要说的就是一款能够自动屏蔽DDOS攻击者IP的软件：DDoS deflate。
 DDoS deflate介绍
 DDoS deflate是一款免费的用来防御和减轻DDoS攻击的脚本。它通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.
 DDoS deflate官方网站：http://deflate.medialayer.com/
 如何确认是否受到DDOS攻击？
-执行：
-netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。
-以下是我自己用VPS测试的结果：
-li88-99:~# netstat -ntu | awk &amp;lsquo;{print $5}&amp;rsquo; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.</description>
+执行： netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 执行后，将会显示服务器上所有的每个IP多少个连接数。 以下是我自己用VPS测试的结果： li88-99:~# netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n 1 114.226.9.132 1 174.129.237.157 1 58.60.118.142 1 Address 1 servers) 2 118.26.131.78 3 123.125.1.202 3 220.248.43.119 4 117.</description>
     </item>
     
   </channel>

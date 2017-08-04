@@ -19,15 +19,15 @@
       
       <guid>/post/vps-guard/</guid>
       <description>原文 http://securityer.lofter.com/post/1d0f3ee7_e0240b4
-1. Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配日志的错误信息（正则式匹配）执行相应的屏蔽动作。
+Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配日志的错误信息（正则式匹配）执行相应的屏蔽动作。
 功能和特性
  支持大量服务。如sshd,apache,qmail,proftpd,sasl等等
  支持多种动作。如iptables,tcp-wrapper,shorewall(iptables第三方工具),mail notifications(邮件通知)等等。
  在logpath选项中支持通配符
  需要Gamin支持(注：Gamin是用于监视文件和目录是否更改的服务工具)
  需要安装python,iptables,tcp-wrapper,shorewall,Gamin。如果想要发邮件，那必需安装postfix或sendmail
-  测试环境  docker pull superitman/fail2ban docker run -d -it \-v /var/log:/var/log \--name fail2ban \--net host \--privileged \superitman/fail2ban:latest  2. DenyHosts DenyHosts是用Python语言写的一个程序，它会分析sshd的日志文件（/var/log/secure），当发现重复的攻击时就会记录IP到/etc/hosts.deny文件，从而达到自动屏IP的功能
-测试环境  docker pull custa/docker-denyhosts docker run -d --restart=always --name denyhosts \ -v /var/log/secure:/var/log/secure -v /etc/hosts.deny:/etc/hosts.deny \ custa/docker-denyhosts  denyhosts.cfg配置文件说明 SECURE_LOG = /var/log/secure #ssh 日志文件，它是根据这个文件来判断的，如还有其他的只要更改名字即可，例如将secure改为secure.1等 HOSTS_DENY = /etc/hosts.deny #控制用户登陆的文件，将多次连接失败的IP添加到此文件，达到屏蔽的作用&amp;lt;br&amp;gt; PURGE_DENY = #过多久后清除已经禁止的，我这里为空表示永远不解禁 BLOCK_SERVICE = sshd #禁止的服务名，如还要添加其他服务，只需添加逗号跟上相应的服务即可 DENY_THRESHOLD_INVALID = 1 #允许无效用户失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_VALID = 2 #允许有效用户登录失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_ROOT = 3 #允许root登录失败的次数&amp;lt;br&amp;gt; HOSTNAME_LOOKUP=NO # 是否做域名反解，这里表示不做 ADMIN_EMAIL = .</description>
+  测试环境 docker pull superitman/fail2ban docker run -d -it \-v /var/log:/var/log \--name fail2ban \--net host \--privileged \superitman/fail2ban:latest  DenyHosts DenyHosts是用Python语言写的一个程序，它会分析sshd的日志文件（/var/log/secure），当发现重复的攻击时就会记录IP到/etc/hosts.deny文件，从而达到自动屏IP的功能
+测试环境 docker pull custa/docker-denyhosts docker run -d --restart=always --name denyhosts \ -v /var/log/secure:/var/log/secure -v /etc/hosts.deny:/etc/hosts.deny \ custa/docker-denyhosts  denyhosts.cfg配置文件说明 SECURE_LOG = /var/log/secure #ssh 日志文件，它是根据这个文件来判断的，如还有其他的只要更改名字即可，例如将secure改为secure.1等 HOSTS_DENY = /etc/hosts.deny #控制用户登陆的文件，将多次连接失败的IP添加到此文件，达到屏蔽的作用&amp;lt;br&amp;gt; PURGE_DENY = #过多久后清除已经禁止的，我这里为空表示永远不解禁 BLOCK_SERVICE = sshd #禁止的服务名，如还要添加其他服务，只需添加逗号跟上相应的服务即可 DENY_THRESHOLD_INVALID = 1 #允许无效用户失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_VALID = 2 #允许有效用户登录失败的次数&amp;lt;br&amp;gt; DENY_THRESHOLD_ROOT = 3 #允许root登录失败的次数&amp;lt;br&amp;gt; HOSTNAME_LOOKUP=NO # 是否做域名反解，这里表示不做 ADMIN_EMAIL = .</description>
     </item>
     
   </channel>

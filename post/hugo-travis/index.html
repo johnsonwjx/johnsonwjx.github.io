@@ -50,7 +50,7 @@
 
 
 <meta itemprop="dateModified" content="2017-06-05T10:24:04&#43;08:00" />
-<meta itemprop="wordCount" content="414">
+<meta itemprop="wordCount" content="412">
 
 
 
@@ -132,22 +132,20 @@ ga('send', 'pageview');
     <div class="content"> 
 
 <blockquote>
-<p>hugo 是 go 编写的 blog生成器
-比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快</p>
+<p>hugo 是 go 编写的 blog生成器 比 ruby 的 jekyll 和 nodejs 的 hexo 生成速度快</p>
 </blockquote>
 
-<h2 id="好处">好处</h2>
+<h1 id="好处">好处</h1>
 
 <ul>
 <li>hugo安装方便，生成快</li>
 <li>集成travis,只需要下载raw分支，新增post，push上去就可以了，本机什么都不用做，甚至不用安装hugo</li>
 </ul>
 
-<h2 id="安装hugo">安装hugo</h2>
+<h1 id="安装hugo">安装hugo</h1>
 
 <blockquote>
-<p>go开发，二进制，可直接下载对应版本的<a href="https://github.com/spf13/hugo/releases">releases</a>放到系统PATH
-或包关联安装 brew,apt,yaourt</p>
+<p>go开发，二进制，可直接下载对应版本的<a href="https://github.com/spf13/hugo/releases">releases</a>放到系统PATH 或包关联安装 brew,apt,yaourt</p>
 </blockquote>
 
 <pre><code class="language-bash">wget https://github.com/spf13/hugo/releases/download/v0.21/hugo_0.21_Linux-64bit.tar.gz
@@ -155,7 +153,7 @@ tar -xvf  hugo_0.21_Linux-64bit.tar.gz
 sudo cp hugo /usr/local/bin
 </code></pre>
 
-<h2 id="生成blog">生成blog</h2>
+<h1 id="生成blog">生成blog</h1>
 
 <blockquote>
 <p>git管理, 挑选theme设置gitsubmodule, 根据theme编辑 <em>config.toml</em>, 否则可能报错</p>
@@ -173,10 +171,9 @@ git commit -m 'init blog raw'
 git checkout --orphan master
 git rm -rf .
 git commit -m 'init deploy branch' --allow-empty
-
 </code></pre>
 
-<p><em>hugo-dusk</em> 的 <em>config.toml</em> example</p>
+<p><strong>hugo-dusk</strong> 的 <strong>config.toml</strong> example</p>
 
 <pre><code>baseurl = &quot;/&quot;
 title = &quot;My site.&quot;
@@ -218,14 +215,14 @@ SectionPagesMenu = &quot;main&quot;
   email = &quot;myemail&quot;
 </code></pre>
 
-<p>创建 <em>post</em> , 生成 浏览</p>
+<h1 id="生成-浏览-post">生成 浏览 <strong>post</strong></h1>
 
 <pre><code class="language-bash">hugo new post/test.md
 hugo
 hugo server -w
 </code></pre>
 
-<h2 id="关联github-和-travis">关联github 和 travis</h2>
+<h1 id="关联github-和-travis">关联github 和 travis</h1>
 
 <ul>
 <li>关联远程github</li>
@@ -247,10 +244,9 @@ travis encrypt-file travis_key --add #  --add 自动添加 解密信息到 .trav
 cat travis_key.pub | pbcopy # 添加公钥 到 github deploy key，勾选 Allow write access。  linux cat travis_key.pub | xclip -selection cllipboard
 </code></pre>
 
-<p>如果报错 <em>repository not known to <a href="https://api.travis-ci.org/:">https://api.travis-ci.org/:</a></em>  进入 travis-ci.org sync account</p>
+<p>如果报错 <strong><em>repository not known to <a href="https://api.travis-ci.org/">https://api.travis-ci.org/</a>:</em></strong> 进入 travis-ci.org sync account</p>
 
-<p>修改 .travis.yml 填写正确信息
-例如</p>
+<p>修改 .travis.yml 填写正确信息 例如</p>
 
 <pre><code>language: go
 branches:
@@ -290,9 +286,7 @@ git commit -m 'add deploy resources'
 git push -u origin master
 </code></pre>
 
-<p>到 <a href="https://travis-ci.org/">https://travis-ci.org/</a>
-启用 io工程
-设置 勾选 Build only if .travis.yml is present</p>
+<p>到 <a href="https://travis-ci.org/">https://travis-ci.org/</a> 启用 io工程 设置 勾选 Build only if .travis.yml is present</p>
 
 <p>success ！！</p>
  </div>

@@ -12,9 +12,8 @@
 <link rel="canonical" href="/post/arch-install/">
 <base href="/" />
 <meta property="og:title" content="arch 安装" />
-<meta property="og:description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
-ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
-netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap" />
+<meta property="og:description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话  此时网络仅仅是安装盘的网络，实际arch要安装后设置
+ cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/arch-install/" />
 
@@ -34,20 +33,18 @@ netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显�
 
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="arch 安装"/>
-<meta name="twitter:description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
-ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
-netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap"/>
+<meta name="twitter:description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话  此时网络仅仅是安装盘的网络，实际arch要安装后设置
+ cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap"/>
 
 
 
 <meta itemprop="name" content="arch 安装">
-<meta itemprop="description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话 cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1  我的是 wlo1,打开wifi设备
-ip link set wlo1 up # 关闭 ip link set wlo1 down  修改 /etc/netctl/homewifi
-netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap">
+<meta itemprop="description" content="Boot Arch Linux 启动 安装 efivar -l #查看是不是 UEFI启动 还是 BIOS  连接网络 如果是wifi的话  此时网络仅仅是安装盘的网络，实际arch要安装后设置
+ cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap">
 
 
 <meta itemprop="dateModified" content="2017-06-26T11:34:45&#43;08:00" />
-<meta itemprop="wordCount" content="463">
+<meta itemprop="wordCount" content="466">
 
 
 
@@ -128,46 +125,39 @@ ga('send', 'pageview');
     <h1 class="title"> arch 安装 </h1>
     <div class="content"> 
 
-<h2 id="boot-arch-linux-启动-安装">Boot Arch Linux 启动 安装</h2>
+<h1 id="boot-arch-linux-启动-安装">Boot Arch Linux 启动 安装</h1>
 
 <pre><code class="language-bash">efivar -l #查看是不是 UEFI启动 还是 BIOS
 </code></pre>
 
-<h2 id="连接网络-如果是wifi的话">连接网络 如果是wifi的话</h2>
+<h1 id="连接网络-如果是wifi的话">连接网络 如果是wifi的话</h1>
+
+<blockquote>
+<p>此时网络仅仅是安装盘的网络，实际arch要安装后设置</p>
+</blockquote>
 
 <pre><code class="language-bash">cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi  #homewifi 随便起的名字
 ip link show # 显示 wifi 设备 一般为 wlo1
-</code></pre>
-
-<p>我的是 wlo1,打开wifi设备</p>
-
-<pre><code class="language-bash">ip link set wlo1 up # 关闭 ip link set wlo1 down
-</code></pre>
-
-<p>修改 /etc/netctl/homewifi</p>
-
-<pre><code class="language-bash">netctl start homwwifi
+#我的是 wlo1,打开wifi设备
+ip link set wlo1 up # 关闭 ip link set wlo1 down
+#修改 /etc/netctl/homewifi
+netctl start homwwifi
 ping -c 3 www.baidu.com #测试网络
 </code></pre>
 
-<h2 id="分区">分区</h2>
+<h1 id="分区">分区</h1>
 
 <pre><code class="language-bash">lsblk #显示硬盘设备
 cfdisk #分区
 </code></pre>
 
-<h3 id="固态硬盘">固态硬盘</h3>
+<h2 id="固态硬盘">固态硬盘</h2>
 
 <blockquote>
-<p>分3个区
-swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命
-swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程
-不过swap 可以向window那样 挂在文件作为swap</p>
+<p>分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap</p>
 </blockquote>
 
-<p>/boot  # 建议500M，我个人分了200M 主要我ssd只有120G 安装linux内核太多时可能会满
-/mnt   # 系统而软件主分区 15-35G 都可以，我分了30G，我安装软件还是挺多的
-/home  # 剩下的 分给它</p>
+<p>/boot # 建议500M，我个人分了200M 主要我ssd只有120G 安装linux内核太多时可能会满 /mnt # 系统而软件主分区 15-35G 都可以，我分了30G，我安装软件还是挺多的 /home # 剩下的 分给它</p>
 
 <pre><code class="language-bash">mkfs.vfat -F32 /dev/sda1
 mkfs.btrfs /dev/sda2
@@ -176,13 +166,9 @@ mkfs.btrfs /dev/sda3
 
 <p>ssd /boot 格式话未 vfat -F32 兼容性好，其他的格式 btrfs</p>
 
-<h3 id="机械硬盘">机械硬盘</h3>
+<h2 id="机械硬盘">机械硬盘</h2>
 
-<p>分4个区
-/boot
-/swap # 内存4G以下建议分内存的2倍,4G以上的分2G或者部分也可以
-/mnt
-/home</p>
+<p>分4个区 /boot /swap # 内存4G以下建议分内存的2倍,4G以上的分2G或者部分也可以 /mnt /home</p>
 
 <pre><code class="language-bash">mkfs.vfat -F32 /dev/sda1
 mkswap /dev/sda2
@@ -190,7 +176,7 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 </code></pre>
 
-<h3 id="挂在分区">挂在分区</h3>
+<h2 id="挂在分区">挂在分区</h2>
 
 <p>挂在根分区 其他分区都挂在在根后面</p>
 
@@ -206,9 +192,11 @@ mount /dev/sda1 /mnt/boot/EFI # BOIS 启动 mount /dev/sda1 /mnt/boot
 <pre><code class="language-bash">swapon /dev/sda2
 </code></pre>
 
-<h2 id="开始安装arch">开始安装Arch</h2>
+<hr />
 
-<h3 id="修改源成中国源">修改源成中国源</h3>
+<h1 id="开始安装arch">开始安装Arch</h1>
+
+<h2 id="修改源成中国源">修改源成中国源</h2>
 
 <blockquote>
 <p>aliyun 163 的源挺快的,我的放前面</p>
@@ -218,71 +206,76 @@ mount /dev/sda1 /mnt/boot/EFI # BOIS 启动 mount /dev/sda1 /mnt/boot
 cat /etc/pacman.d/mirrorlist.bak | grep -e .cn/ &gt; /etc/pacman.d/mirrorlist
 </code></pre>
 
-<p>刷新系统包,开始真的安装</p>
+<h2 id="刷新系统包-开始真的安装">刷新系统包,开始真的安装</h2>
 
 <pre><code>pacman -Syy
 pacstrap -i /mnt base base-devel
 </code></pre>
 
-<p>生成 fstab 文件</p>
+<h2 id="生成-fstab-文件">生成 fstab 文件</h2>
 
 <blockquote>
-<p>fstab文件是 系统的分区挂载情况描述文件,告诉文件系统挂载情况</p>
+<p>fstab文件是 系统的分区挂载情况描述文件,告诉文件系统挂载情况 之前的操作 都是基于U盘启动环境的，需要在真是的电脑arch生成fstab 真是的arch被挂载为 /mnt</p>
 </blockquote>
-
-<p>之前的操作 都是基于U盘启动环境的，需要在真是的电脑arch生成fstab
-真是的arch被挂载为 /mnt</p>
 
 <pre><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 cat /mnt/etc/fstab #看看fstab文件正常不
 </code></pre>
 
-<p>到此我们之前所有的操作都为U盘启动环境，现在需要进入真是arch</p>
+<h2 id="进入真实的arch-安装必要软件">进入真实的arch 安装必要软件</h2>
 
-<pre><code>arch-chroot /mnt /bin/bash
+<blockquote>
+<p>到此我们之前所有的操作都为U盘启动环境，现在需要进入真是arch</p>
+</blockquote>
+
+<pre><code class="language-bash">arch-chroot /mnt /bin/bash
 </code></pre>
 
 <p>现在/mnt 只有系统 没有启动文件，所有不能重启</p>
 
-<pre><code>passwd #修改root密码
+<pre><code class="language-bash">passwd #修改root密码
 echo 你主机名 &gt; /etc/hostname
 </code></pre>
 
-<p>修改 <em>/etc/hostname</em>,添加 *127.0.0.1 localhost.localdomain localhost 你主机名 *</p>
+<p>修改 <strong>/etc/hostname</strong>,添加 127.0.0.1 localhost.localdomain localhost 你主机名</p>
 
-<p>安装 grub 启动引导
-UEFI需要<em>efibootmgr</em>,有多个系统需要<em>os-prober</em>
-根据需要安装</p>
+<h2 id="安装-grub-启动引导">安装 grub 启动引导</h2>
 
-<pre><code>pacman  -S grub efibootmgr
+<p>UEFI需要<strong>efibootmgr</strong>,有多个系统需要<strong>os-prober</strong> 根据需要安装</p>
+
+<pre><code class="language-bash">pacman  -S grub efibootmgr
 </code></pre>
 
-<p>将引导信息写入扇区,以后启动不了系统，也可以进入安装环境，挂载硬盘系统为<em>/mnt</em>,重新安装grub</p>
+<p>将引导信息写入扇区,以后启动不了系统，也可以进入安装环境，挂载硬盘系统为<strong>/mnt</strong>,重新安装grub</p>
 
-<pre><code>grub-install --recheck /dev/sda
+<pre><code class="language-bash">grub-install --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre>
 
-<p>执行<code>pacman -S vim</code>安装vim。
-执行<code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code> 设置时区。
-执行<code>hwclock --systohc --utc</code>设置时间标准 为 UTC。
-<code>timedatectl set-ntp true</code> 开启网络对时，与window共享时，不要开启网络对时，否则两时间不一致而是设置为localtime <code>hwclock --systohc --localitme</code>
-<code>vim /etc/locale.gen</code>移除<em>en_US.UTF-8 UTF-8、zh_CN.UTF-8 UTF-8</em>
-<code>locale-gen</code> 生成本地化信息
-<code>echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code>将系统 locale 设置为en_US.UTF-8.
-&gt;这里可以设中文，但是这里设的是全局,如果设成非英文环境，桌面显示正常，但是terminal则乱码</p>
+<h2 id="arch开机前基础设置">arch开机前基础设置</h2>
 
-<p>还需要在实际电脑配置网络</p>
+<pre><code class="language-bash">pacman -S
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #设置时区。
+hwclock --systohc --utc #设置时间标准 为 UTC。
+timedatectl set-ntp true  #开启网络对时，与window共享时，不要开启网络对时，否则两时间不一致而是设置为localtime `hwclock --systohc --localitme`
+vim /etc/locale.gen #移除*en_US.UTF-8 UTF-8、zh_CN.UTF-8 UTF-8*的注释
+locale-gen #生成本地化信息
+echo LANG=en_US.UTF-8 &gt; /etc/locale.conf #将系统 locale 设置为en_US.UTF-8.
+#这里可以设中文，但是这里设的是全局,如果设成非英文环境，桌面显示正常，但是terminal则乱码
+</code></pre>
 
-<p>有线网络</p>
+<h2 id="开机前arch网络设置">开机前arch网络设置</h2>
+
+<h3 id="有线网络">有线网络</h3>
 
 <pre><code>systemctl enable dhcpcd.service
 </code></pre>
 
-<p>无线网络
-安装iw wpa_supplicant dialog</p>
+<h3 id="无线网络">无线网络</h3>
 
-<pre><code>cp /etc/netctl/examples/wireless-wpa /etc/netctl/your_profile
+<p>安装iw wpa_supplicant dialog</p>
+
+<pre><code class="language-bash">cp /etc/netctl/examples/wireless-wpa /etc/netctl/your_profile
 #修改 你的 *your_profile*
 vim /etc/netctl/your_profile
 netctl start your_profile
@@ -291,21 +284,21 @@ umount -R /mnt
 root
 </code></pre>
 
-<p>启动</p>
+<h2 id="启动系统">启动系统</h2>
 
 <p>如果启动后wifi没连上</p>
 
-<pre><code>iwconfig #查看wifi 硬件接口 或ip link查看
+<pre><code class="language-bash">iwconfig #查看wifi 硬件接口 或ip link查看
 #假设为wlo1
 ip link set wlo1 up
 netctl status your_profile #查看状态
 </code></pre>
 
-<p>创建用户加入wheel</p>
+<h2 id="创建用户加入wheel">创建用户加入wheel</h2>
 
-<pre><code>useradd -m -G wheel -s /bin/bash johnson
+<pre><code class="language-bash">useradd -m -G wheel -s /bin/bash johnson
 passwd johnson
-#修改whell ALL=(ALL)ALL 去掉 ＊#*
+#修改whell ALL=(ALL)ALL 去掉#
 vim /etc/sudoers
 </code></pre>
 
@@ -313,22 +306,24 @@ vim /etc/sudoers
 
 <p>修改源,按照上面方法</p>
 
-<pre><code>pacman -S xorg #安装基础
+<pre><code class="language-bash">pacman -S xorg #安装基础
 pacman -S lxdm #启动管理器，连接桌面程序
 pacman -S xfce4
 pacman -S xfce4-goodies # 包含很多界面插件，一下常用软件
 systemctl enable lxdm #开机启动
+
+#lxdm 默认 lxde 登录
+#修改为xfce4
+vim /etc/lxdm/lxdm.conf
+*session=/usr/bin/startlxde* 修改为 *session=/usr/bin/startxfce4*
+实现不需要密码登录用户 lxdm.conf 修改 autologin 为指定用户 johnson
 </code></pre>
 
-<p>lxdm 默认 lxde 登录
-修改为xfce4
-<code>vim /etc/lxdm/lxdm.conf</code> <em>session=/usr/bin/startlxde</em> 修改为 <em>session=/usr/bin/startxfce4</em>
-实现不需要密码登录用户 lxdm.conf 修改 autologin 为指定用户 johnson</p>
+<p>重启进入 xfce4 进入 jonson 用户</p>
 
-<p>重启进入 <em>xfce4</em>  进入 <em>jonson</em> 用户
-配置 *jonson*登录语言环境</p>
+<h2 id="配置登录语言环境">配置登录语言环境</h2>
 
-<pre><code>pacman -S wqy-microhei #中文字体
+<pre><code class="language-bash">pacman -S wqy-microhei #中文字体
 # 输入法
 pacman -S fcitx-im fcitx-configtool
 pacman -S ibus ibus-rime
@@ -345,14 +340,14 @@ export XMODIFIERS=@im=fcitx
 
 <p>以后谁需要就 cp .xprofile /home/用户名</p>
 
-<p>声音</p>
+<h2 id="声音">声音</h2>
 
-<pre><code>pacman -S pulseaudio pavucontrol #有关 pacman -S alsa-utils  启动alsamixer
+<pre><code class="language-bash">pacman -S pulseaudio pavucontrol #有关 pacman -S alsa-utils  启动alsamixer
 </code></pre>
 
-<p>安装yaourt</p>
+<h2 id="安装yaourt">安装yaourt</h2>
 
-<pre><code>sudo vim /etc/pacman.conf
+<pre><code class="language-bash">sudo vim /etc/pacman.conf
 #加入
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
@@ -362,10 +357,13 @@ sudo pacman -S archlinuxcn-keyring #安装中文源密钥
 sudo pacman -S yaourt
 </code></pre>
 
-<p>常用软件
-<code>zsh git tmux unrar zip unzip openssh glances htop iftop screenfetch tree vlc wget net-tools 网易云音乐 chromum-dev proxychains4 dnsmasq ss atom npm plantsuml</code>
+<h1 id="常用软件">常用软件</h1>
+
+<pre><code>zsh git tmux unrar zip unzip openssh glances htop iftop screenfetch tree vlc wget net-tools
+网易云音乐 chromum-dev proxychains4 dnsmasq ss atom npm plantsuml
 安装 oh-my-zsh
-安装 guake 开机启动  sudo ln -s /usr/share/applications/guake.desktop /etc/xdg/autostart/.</p>
+安装 guake 开机启动 sudo ln -s /usr/share/applications/guake.desktop /etc/xdg/autostart/.
+</code></pre>
  </div>
     <footer class="post-footer">
 
