@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Johnson" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.28-DEV" />
+
+<link rel="canonical" href="/post/rsync/">
+<base href="/" />
+<meta property="og:title" content="rsync 使用" />
+<meta property="og:description" content=" 简介 rsync主要用于远程文件传输、备份等。支持增量备份 特点： - 可以从远程或者本地镜像保存整个目录树和文件系统。 - 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。 - 无须特殊权限即可安装。 - 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。 - 支持匿名传输，以方便进行网站镜像。
+常用参数  -v verbose 详细输出 -a 归档模式，递归方式传输文件，并保持连接，权限，用户和组，时间信息 -z 压缩文件传输 -h human-readable, 输出友好  用法 rsync -avz /local/path/ user@remoteip:/path/to/files/ rsync -avz user@remoteip:/home/user/src ./src rsync -avzhe ssh --progress /home/files/ root@remoteip:/path/to/files/ rsync -avzhe ssh --max-size=&#39;2000k&#39; /var/lib/rpm/ root@remoteip:/root/tmprpm	rsync --remove-source-files -zvh backup.tar /tmp/backups/ rsync --bwlimit=100 -avzhe ssh /var/lib/rpm/ root@remoteip:/root/tmprpm/	 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/rsync/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="rsync 使用"/>
+<meta name="twitter:description" content=" 简介 rsync主要用于远程文件传输、备份等。支持增量备份 特点： - 可以从远程或者本地镜像保存整个目录树和文件系统。 - 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。 - 无须特殊权限即可安装。 - 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。 - 支持匿名传输，以方便进行网站镜像。
+常用参数  -v verbose 详细输出 -a 归档模式，递归方式传输文件，并保持连接，权限，用户和组，时间信息 -z 压缩文件传输 -h human-readable, 输出友好  用法 rsync -avz /local/path/ user@remoteip:/path/to/files/ rsync -avz user@remoteip:/home/user/src ./src rsync -avzhe ssh --progress /home/files/ root@remoteip:/path/to/files/ rsync -avzhe ssh --max-size=&#39;2000k&#39; /var/lib/rpm/ root@remoteip:/root/tmprpm	rsync --remove-source-files -zvh backup.tar /tmp/backups/ rsync --bwlimit=100 -avzhe ssh /var/lib/rpm/ root@remoteip:/root/tmprpm/	 "/>
+
+
+
+<meta itemprop="name" content="rsync 使用">
+<meta itemprop="description" content=" 简介 rsync主要用于远程文件传输、备份等。支持增量备份 特点： - 可以从远程或者本地镜像保存整个目录树和文件系统。 - 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。 - 无须特殊权限即可安装。 - 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。 - 支持匿名传输，以方便进行网站镜像。
+常用参数  -v verbose 详细输出 -a 归档模式，递归方式传输文件，并保持连接，权限，用户和组，时间信息 -z 压缩文件传输 -h human-readable, 输出友好  用法 rsync -avz /local/path/ user@remoteip:/path/to/files/ rsync -avz user@remoteip:/home/user/src ./src rsync -avzhe ssh --progress /home/files/ root@remoteip:/path/to/files/ rsync -avzhe ssh --max-size=&#39;2000k&#39; /var/lib/rpm/ root@remoteip:/root/tmprpm	rsync --remove-source-files -zvh backup.tar /tmp/backups/ rsync --bwlimit=100 -avzhe ssh /var/lib/rpm/ root@remoteip:/root/tmprpm/	 ">
+
+
+
+<meta itemprop="wordCount" content="65">
+
+
+
+<meta itemprop="keywords" content="rsync," />
+
+
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/color-dark.css" />
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-100450211-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+<title>
+
+
+     rsync 使用 
+
+</title>
+
+<script src="js/highlight.min.js"></script>
+<link rel="stylesheet" href="css/tomorrow-night.min.css" />
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">Johnson</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/post/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+</div>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> rsync 使用 </h1>
+    <div class="content"> 
+
+<h1 id="简介">简介</h1>
+
+<p>rsync主要用于远程文件传输、备份等。支持<strong>增量备份</strong>
+特点：
+- 可以从远程或者本地镜像保存整个目录树和文件系统。
+- 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。
+- 无须特殊权限即可安装。
+- 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。
+- 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。
+- 支持匿名传输，以方便进行网站镜像。</p>
+
+<h1 id="常用参数">常用参数</h1>
+
+<ul>
+<li>-v  verbose 详细输出</li>
+<li>-a    归档模式，递归方式传输文件，并保持连接，权限，用户和组，时间信息</li>
+<li>-z  压缩文件传输</li>
+<li>-h  human-readable, 输出友好</li>
+</ul>
+
+<h1 id="用法">用法</h1>
+
+<pre><code>rsync -avz /local/path/  user@remoteip:/path/to/files/
+rsync -avz user@remoteip:/home/user/src  ./src
+rsync -avzhe ssh --progress /home/files/ root@remoteip:/path/to/files/
+rsync -avzhe ssh --max-size='2000k' /var/lib/rpm/ root@remoteip:/root/tmprpm	
+rsync --remove-source-files -zvh backup.tar /tmp/backups/
+rsync --bwlimit=100 -avzhe ssh /var/lib/rpm/ root@remoteip:/root/tmprpm/	
+</code></pre>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+    
+<div class="tags">
+    
+      <div class="tag">
+        <a href="/tags/rsync">#rsync</a>
+      </div>
+    
+</div>
+
+    <div class="date"> Jan 1, 0001 </div>
+  </div>
+
+</footer>
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'johnsonjx';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>
+  Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:wujiaxiong0@gmail.com"><div class="social-link">Email</div></a>
+  
+
+  
+
+  
+
+  
+  <a href="https://twitter.com/wuxiongxiong" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright"> Copyright (c) 2017, all rights reserved. </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</body>
+</html>
+

@@ -107,6 +107,11 @@
   </url>
   
   <url>
+    <loc>/tags/rsync/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <lastmod>2017-08-02T10:33:04+08:00</lastmod>
     <priority>0</priority>
@@ -115,6 +120,11 @@
   <url>
     <loc>/tags/tools/</loc>
     <lastmod>2017-08-02T08:20:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/tools/</loc>
     <priority>0</priority>
   </url>
   
@@ -134,6 +144,10 @@
     <loc>/categories/vps/</loc>
     <lastmod>2017-08-02T10:33:04+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/rsync/</loc>
   </url>
   
 </urlset>

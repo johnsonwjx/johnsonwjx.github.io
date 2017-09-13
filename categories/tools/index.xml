@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Johnson</title>
+    <link>/categories/tools/</link>
+    <description>Recent content in Tools on Johnson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2017, all rights reserved.</copyright>
+    
+	<atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rsync 使用</title>
+      <link>/post/rsync/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rsync/</guid>
+      <description> 简介 rsync主要用于远程文件传输、备份等。支持增量备份 特点： - 可以从远程或者本地镜像保存整个目录树和文件系统。 - 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。 - 无须特殊权限即可安装。 - 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。 - 支持匿名传输，以方便进行网站镜像。
+常用参数  -v verbose 详细输出 -a 归档模式，递归方式传输文件，并保持连接，权限，用户和组，时间信息 -z 压缩文件传输 -h human-readable, 输出友好  用法 rsync -avz /local/path/ user@remoteip:/path/to/files/ rsync -avz user@remoteip:/home/user/src ./src rsync -avzhe ssh --progress /home/files/ root@remoteip:/path/to/files/ rsync -avzhe ssh --max-size=&#39;2000k&#39; /var/lib/rpm/ root@remoteip:/root/tmprpm	rsync --remove-source-files -zvh backup.tar /tmp/backups/ rsync --bwlimit=100 -avzhe ssh /var/lib/rpm/ root@remoteip:/root/tmprpm/	 </description>
+    </item>
+    
+  </channel>
+</rss>
