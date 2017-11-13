@@ -7,7 +7,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.28-DEV" />
+<meta name="generator" content="Hugo 0.31-DEV" />
 
 <link rel="canonical" href="/post/vps-32or64/">
 <base href="/" />
@@ -22,6 +22,7 @@
 
 
 <meta property="article:published_time" content="2017-08-01T15:22:24&#43;08:00"/>
+
 <meta property="article:modified_time" content="2017-08-01T15:22:24&#43;08:00"/>
 
 
@@ -49,6 +50,7 @@
 32位和64位系统的优缺点  64位系统可以访问超过 4GB 的超大内存地址空间，相比32位系统只能访问 4GB 的内存地址。 64位系统的性能有一定的提升，因为 CPU 有16个一般用途的寄存器，相比32位系统只有8个。 通过使用优化的 x64-64 CPU 指令，性能得到提升。 网上的一下测试表明同一应用程序64位系统比32位系统多消耗至少有60%以上的内存，这意味着需要支付更多的成本。 性能损失，因为64位是8字节，相比32位系统只有4字节。 由于x86_64兼容x86，32位的Windows和Linux等操作系统都可以很好的运行在x86_64的CPU上。x86的CPU只能运行32位的操作系统，而x86_64的CPU既可以运行64位的操作系统，也可以运行32位的操作系统。 Linux操作系统分为Linux内核和应用程序两部分。x86_64 CPU上可以运行64位的Linux内核，和32位的应用程序，而32位系Linux内核无法运行64位的程序。  查看Linux系统内核是32位还是64位，可以运行命令：uname -a，查看应用程序运行命令：file /usr/bin/*。 一般情况下，除非你对64位有特别的需求或者你的机器内存超过了4GB，否则还是推荐使用价格低廉、速度快的32位系统。">
 
 
+<meta itemprop="datePublished" content="2017-08-01T15:22:24&#43;08:00" />
 <meta itemprop="dateModified" content="2017-08-01T15:22:24&#43;08:00" />
 <meta itemprop="wordCount" content="28">
 

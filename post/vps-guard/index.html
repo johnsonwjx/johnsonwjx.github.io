@@ -7,7 +7,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.28-DEV" />
+<meta name="generator" content="Hugo 0.31-DEV" />
 
 <link rel="canonical" href="/post/vps-guard/">
 <base href="/" />
@@ -28,6 +28,7 @@ Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配
 
 
 <meta property="article:published_time" content="2017-08-02T08:20:21&#43;08:00"/>
+
 <meta property="article:modified_time" content="2017-08-02T08:20:21&#43;08:00"/>
 
 
@@ -67,6 +68,7 @@ Fail2ban fail2ban是一款实用软件，可以监视系统日志，然后匹配
 测试环境 docker pull custa/docker-denyhosts docker run -d --restart=always --name denyhosts \ -v /var/log/secure:/var/log/secure -v /etc/hosts.deny:/etc/hosts.deny \ custa/docker-denyhosts  denyhosts.cfg配置文件说明 SECURE_LOG = /var/log/secure #ssh 日志文件，它是根据这个文件来判断的，如还有其他的只要更改名字即可，例如将secure改为secure.1等 HOSTS_DENY = /etc/hosts.deny #控制用户登陆的文件，将多次连接失败的IP添加到此文件，达到屏蔽的作用&lt;br&gt; PURGE_DENY = #过多久后清除已经禁止的，我这里为空表示永远不解禁 BLOCK_SERVICE = sshd #禁止的服务名，如还要添加其他服务，只需添加逗号跟上相应的服务即可 DENY_THRESHOLD_INVALID = 1 #允许无效用户失败的次数&lt;br&gt; DENY_THRESHOLD_VALID = 2 #允许有效用户登录失败的次数&lt;br&gt; DENY_THRESHOLD_ROOT = 3 #允许root登录失败的次数&lt;br&gt; HOSTNAME_LOOKUP=NO # 是否做域名反解，这里表示不做 ADMIN_EMAIL = .">
 
 
+<meta itemprop="datePublished" content="2017-08-02T08:20:21&#43;08:00" />
 <meta itemprop="dateModified" content="2017-08-02T08:20:21&#43;08:00" />
 <meta itemprop="wordCount" content="118">
 

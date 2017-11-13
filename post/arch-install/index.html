@@ -7,7 +7,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.28-DEV" />
+<meta name="generator" content="Hugo 0.31-DEV" />
 
 <link rel="canonical" href="/post/arch-install/">
 <base href="/" />
@@ -20,6 +20,7 @@
 
 
 <meta property="article:published_time" content="2017-06-26T11:34:45&#43;08:00"/>
+
 <meta property="article:modified_time" content="2017-06-26T11:34:45&#43;08:00"/>
 
 
@@ -43,6 +44,7 @@
  cp /etc/netctl/examples/wireless-wpa-config /etc/netctl/homewifi #homewifi 随便起的名字 ip link show # 显示 wifi 设备 一般为 wlo1 #我的是 wlo1,打开wifi设备 ip link set wlo1 up # 关闭 ip link set wlo1 down #修改 /etc/netctl/homewifi netctl start homwwifi ping -c 3 www.baidu.com #测试网络  分区 lsblk #显示硬盘设备 cfdisk #分区  固态硬盘  分3个区 swap分区 我是没分，主要我内存6G也够了，而且swap分区读写频繁会影响ssd寿命 swap 没有听说会影响休眠功能，而且内存不够时会直接kill掉进程 不过swap 可以向window那样 挂在文件作为swap">
 
 
+<meta itemprop="datePublished" content="2017-06-26T11:34:45&#43;08:00" />
 <meta itemprop="dateModified" content="2017-06-26T11:34:45&#43;08:00" />
 <meta itemprop="wordCount" content="466">
 

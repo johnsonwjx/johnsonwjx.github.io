@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2017, all rights reserved.</copyright>
+    <lastBuildDate>Sat, 16 Sep 2017 11:34:45 +0800</lastBuildDate>
     
 	<atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +15,7 @@
     <item>
       <title>rsync 使用</title>
       <link>/post/rsync/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 Sep 2017 11:34:45 +0800</pubDate>
       
       <guid>/post/rsync/</guid>
       <description> 简介 rsync主要用于远程文件传输、备份等。支持增量备份 特点： - 可以从远程或者本地镜像保存整个目录树和文件系统。 - 可以保持文件原来的权限、时间、所有者、组信息、软硬链接等等。 - 无须特殊权限即可安装。 - 快速：他要比 scp (Secure Copy) 要快；第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，可以使用更少的带宽。 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。 - 支持匿名传输，以方便进行网站镜像。

@@ -7,7 +7,7 @@
 <meta name="description" content="Personal blog." />
 <meta name="keywords" content="blog, tech" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.28-DEV" />
+<meta name="generator" content="Hugo 0.31-DEV" />
 
 <link rel="canonical" href="/post/system-practise/">
 <base href="/" />
@@ -22,6 +22,7 @@ $ sudo systemctl start httpd 执行上面的命令以后，有可能启动失败
 
 
 <meta property="article:published_time" content="2017-08-04T09:59:19&#43;08:00"/>
+
 <meta property="article:modified_time" content="2017-08-04T09:59:19&#43;08:00"/>
 
 
@@ -49,6 +50,7 @@ $ sudo systemctl enable httpd #上面的命令相当于在/etc/systemd/system目
 $ sudo systemctl start httpd 执行上面的命令以后，有可能启动失败，因此要用systemctl status命令查看一下该服务的状态。 $ sudo systemctl status httpd httpd.service - The Apache HTTP Server Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled) Active: active (running) since 金 2014-12-05 12:18:22 JST; 7min ago Main PID: 4349 (httpd) Status: &quot;Total requests: 1; Current requests/sec: 0; Current traffic: 0 B/sec&quot; CGroup: /system.slice/httpd.service ├─4349 /usr/sbin/httpd -DFOREGROUND ├─4350 /usr/sbin/httpd -DFOREGROUND ├─4351 /usr/sbin/httpd -DFOREGROUND ├─4352 /usr/sbin/httpd -DFOREGROUND ├─4353 /usr/sbin/httpd -DFOREGROUND └─4354 /usr/sbin/httpd -DFOREGROUND 12月 05 12:18:22 localhost.">
 
 
+<meta itemprop="datePublished" content="2017-08-04T09:59:19&#43;08:00" />
 <meta itemprop="dateModified" content="2017-08-04T09:59:19&#43;08:00" />
 <meta itemprop="wordCount" content="427">
 
